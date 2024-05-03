@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "car-shop"
+version = "0.1.0"
+description = ""
+authors = ["Italo SF <italosilvafernandesprog@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^5.0.4"
+django-admin = "^2.0.2"
+django-summernote = "^0.8.20.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
