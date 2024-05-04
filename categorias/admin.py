@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import EstadoDeConservacao, Categoria, Marca, Cor, Cambio
+from .models import EstadoDeConservacaoModels, CategoriaModels, MarcaModels, CorModels, CambioModels
 
 
 class EstadoDeConservacaoAdmin(admin.ModelAdmin):
@@ -27,8 +27,8 @@ class CambioAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'nome_cambio')
 
 
-admin.site.register(EstadoDeConservacao, EstadoDeConservacaoAdmin)
-admin.site.register(Categoria, CategoriaAdmin)
-admin.site.register(Marca, MarcaAdmin)
-admin.site.register(Cor, CorAdmin)
-admin.site.register(Cambio, CambioAdmin)
+admin.site.register(EstadoDeConservacaoModels, EstadoDeConservacaoAdmin)
+admin.site.register(CategoriaModels, CategoriaAdmin)
+admin.site.register(MarcaModels, MarcaAdmin)
+admin.site.register(CorModels, CorAdmin)
+admin.site.register(CambioModels, CambioAdmin)

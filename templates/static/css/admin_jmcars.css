@@ -1,0 +1,113 @@
+/*
+ALTERAR: 282828 -> Cor do topo
+ALTERAR: cc3a3a -> Cor dos links e cabeçalhos
+*/
+
+#branding h1,
+#branding h1 a,
+#branding h1 a:link,
+#branding h1 a:visited {
+  color: #ffffff;
+}
+
+#header {
+  background: #282828;
+  color: #ffffff;
+}
+
+#user-tools a:focus,
+#user-tools a:hover {
+  border-bottom-color: #ffffff;
+  color: #ffffff;
+}
+
+a:link,
+a:visited {
+  color: #cc3a3a;
+}
+
+.module h2,
+.module caption,
+.inline-group h2 {
+  background: #cc3a3a;
+  color: #ffffff;
+}
+
+div.breadcrumbs {
+  background: #cc3a3a;
+  color: #ffffff;
+}
+
+.paginator a:link,
+.paginator a:visited {
+  background: #cc3a3a !important;
+  color: #ffffff;
+}
+
+.paginator a:hover {
+  background: #282828 !important;
+  color: #ffffff;
+}
+
+.button.default,
+input[type="submit"].default,
+.submit-row input.default {
+  background: #cc3a3a;
+}
+
+.button.default:active,
+input[type="submit"].default:active,
+.button.default:focus,
+input[type="submit"].default:focus,
+.button.default:hover,
+input[type="submit"].default:hover {
+  background: #282828;
+}
+
+.object-tools a:focus,
+.object-tools a:hover {
+  background-color: #cc3a3a;
+}
+
+.button,
+input[type="submit"],
+input[type="button"],
+.submit-row input,
+a.button {
+  background: #282828;
+  color: #ffffff;
+}
+.button:active,
+input[type="submit"]:active,
+input[type="button"]:active,
+.button:focus,
+input[type="submit"]:focus,
+input[type="button"]:focus,
+.button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: #cc3a3a;
+}
+
+#changelist-filter li.selected a {
+  color: #cc3a3a !important;
+}
+
+#changelist-filter a:focus,
+#changelist-filter a:hover,
+#changelist-filter li.selected a:focus,
+#changelist-filter li.selected a:hover {
+  color: #282828 !important;
+}
+
+.selector-chosen h2 {
+  background: #cc3a3a !important;
+  color: #ffffff;
+}
+
+a.active.selector-chooseall:focus,
+a.active.selector-clearall:focus,
+a.active.selector-chooseall:hover,
+a.active.selector-clearall:hover {
+  color: #cc3a3a !important;
+}

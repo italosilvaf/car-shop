@@ -1,0 +1,10 @@
+{% extends 'admin/base.html' %} {% load static %} {% block branding %}
+<h1 id="head">
+  <img
+    src="{% static 'img/logo-pronta-branco.png' %}"
+    style="width: 190px; height: 50px; margin-right: 10px"
+  />
+</h1>
+{%endblock%} {%block extrastyle%}
+<link rel="stylesheet" href="{% static 'css/admin_jmcars.css' %}" />
+{%endblock%}
