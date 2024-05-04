@@ -23,23 +23,23 @@
 
 <!-- Begin Main Content Area -->
 <main class="main-content scroll-horizontal-removido">
-  {% if personalizacoes.imagem_about %}
+  {% if personalizacoes.imagem_sobre_nos %}
   <div
     class="breadcrumb-area breadcrumb-height"
-    data-bg-image="{{ personalizacoes.imagem_about.url}}"
+    data-bg-image="{{ personalizacoes.imagem_sobre_nos.url}}"
   >
   {% else %}
   <div
   class="breadcrumb-area breadcrumb-height"
-  data-bg-image="{% static 'images/about/Background-About_Audi-R8.jpg' %}"
+  data-bg-image="{% static 'images/sobre_nos/Background-sobre_nos_Audi-R8.jpg' %}"
   >
   {% endif %}
     <div class="container h-100" data-aos="zoom-in" data-aos-duration="1500">
       <div class="row h-100">
         <div class="col-lg-12">
           <div class="breadcrumb-item text-white">
-            {% if personalizacoes.titulo_about %}
-            <h2 class="breadcrumb-heading">{{ personalizacoes.titulo_about }}</h2>
+            {% if personalizacoes.titulo_sobre_nos %}
+            <h2 class="breadcrumb-heading">{{ personalizacoes.titulo_sobre_nos }}</h2>
             {% else %}
             <h2 class="breadcrumb-heading">Sobre nós</h2>
             {% endif %}
@@ -64,22 +64,22 @@
               data-aos="fade-up"
               data-aos-duration="1000"
             >
-            {% if personalizacoes.subtitulo_texto_about %}
+            {% if personalizacoes.subtitulo_texto_sobre_nos %}
               <span class="about-sub-title text-primary"
-                >{{ personalizacoes.subtitulo_texto_about }}
+                >{{ personalizacoes.subtitulo_texto_sobre_nos }}
               </span>
             {% else %}
               <span class="about-sub-title text-primary"
                 >História da
               </span>
             {% endif %}
-            {% if personalizacoes.titulo_texto_about %}
-              <h2 class="about-title mb-5">{{ personalizacoes.titulo_texto_about }}</h2>
+            {% if personalizacoes.titulo_texto_sobre_nos %}
+              <h2 class="about-title mb-5">{{ personalizacoes.titulo_texto_sobre_nos }}</h2>
             {% else %}
               <h2 class="about-title mb-5">CarShop</h2>
             {% endif %}
-            {% if personalizacoes.texto_about %}
-              <p class="short-desc mb-0">{{ personalizacoes.texto_about}}</p>
+            {% if personalizacoes.texto_sobre_nos %}
+              <p class="short-desc mb-0">{{ personalizacoes.texto_sobre_nos}}</p>
             {% else %}
               <p class="short-desc mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic assumenda vero ipsa consequuntur illum laudantium aliquam eligendi facere eaque dolore dolor expedita dignissimos consectetur, cupiditate iste et distinctio delectus est! Tempore reiciendis deleniti corrupti et, magnam tempora ad est officiis aliquam, fugit beatae quasi eum iusto harum ex facilis totam. Amet natus reiciendis suscipit porro dolorum, vel harum quidem explicabo distinctio doloremque iure nam omnis magni rerum! Alias cumque necessitatibus modi laborum laudantium dolor atque eos quibusdam minus rem deleniti sunt, error quis molestias, itaque eligendi officiis culpa qui ducimus a nesciunt distinctio consequatur corporis? Nam, at aspernatur culpa delectus inventore dolorem pariatur eaque, magnam, sapiente enim ex eligendi quos quibusdam sint. Veniam, accusantium sapiente ex iure excepturi adipisci et placeat corrupti iste minus, labore nesciunt deserunt culpa odit repudiandae provident in earum officiis vero dolor neque reprehenderit soluta quos unde. Eaque minus deleniti dolore, et porro expedita iusto explicabo ullam sapiente eveniet sed placeat officia ex accusantium facere repellat laudantium similique sequi rem. Facilis, necessitatibus illo ducimus doloribus sed sequi ipsum fugiat eveniet quam officiis quia ratione perspiciatis sapiente deserunt tempora porro, numquam iste accusantium amet eos aliquid quo. Tempora blanditiis consectetur delectus tempore odio, aut suscipit.</p>
             {% endif %}
@@ -92,16 +92,16 @@
                 data-aos="fade-up-right"
                 data-aos-duration="1000"
               >
-              {% if personalizacoes.imagem_texto_um_about %}
+              {% if personalizacoes.imagem_texto_um_sobre_nos %}
                 <img
                   class="img-full"
-                  src="{{ personalizacoes.imagem_texto_um_about.url }}"
+                  src="{{ personalizacoes.imagem_texto_um_sobre_nos.url }}"
                   alt="About Banner"
                 />
               {% else %}
                 <img
                   class="img-full"
-                  src="{% static 'images/about/Imagem-Texto-About_Capacetes.png' %}"
+                  src="{% static 'images/sobre_nos/Imagem-Texto-sobre_nos_Capacetes.png' %}"
                   alt="About Banner"
                 />
               {% endif%}
@@ -113,16 +113,16 @@
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
-              {% if personalizacoes.imagem_texto_dois_about %}
+              {% if personalizacoes.imagem_texto_dois_sobre_nos %}
                 <img
                   class="img-full"
-                  src="{{ personalizacoes.imagem_texto_dois_about.url }}"
+                  src="{{ personalizacoes.imagem_texto_dois_sobre_nos.url }}"
                   alt="About Banner"
                 />
               {% else %}
                 <img
                   class="img-full"
-                  src="{% static 'images/about/Imagem-Texto-About_Chave-de-roda.png' %}"
+                  src="{% static 'images/sobre_nos/Imagem-Texto-sobre_nos_Chave-de-roda.png' %}"
                   alt="About Banner"
                 />
               {% endif%}
@@ -134,16 +134,16 @@
                 data-aos="fade-up-left"
                 data-aos-duration="1000"
               >
-              {% if personalizacoes.imagem_texto_tres_about %}
+              {% if personalizacoes.imagem_texto_tres_sobre_nos %}
                 <img
                   class="img-full"
-                  src="{{ personalizacoes.imagem_texto_tres_about.url }}"
+                  src="{{ personalizacoes.imagem_texto_tres_sobre_nos.url }}"
                   alt="About Banner"
                 />
               {% else %}
                 <img
                   class="img-full"
-                  src="{% static 'images/about/Imagem-Texto-About_Pneus.png' %}"
+                  src="{% static 'images/sobre_nos/Imagem-Texto-sobre_nos_Pneus.png' %}"
                   alt="About Banner"
                 />
               {% endif%}
