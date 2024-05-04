@@ -1,0 +1,530 @@
+{% extends 'base.html' %} {% load static %} {% load filters %}
+<x></x>
+{% block titulo_da_guia %}
+<title>JMcars - Estoque</title>
+{% endblock %} {% block conteudo %}
+
+<style>
+  /* Geral */
+  .paginator {
+    z-index: 1;
+    }
+
+  .centro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sombra-itens-grid-list{
+     box-shadow: 0px 2px 2px #ccc;
+     border-radius: 5px;
+     background-color: #f9f9f9;
+  }
+
+  /* End Geral */
+
+
+  /* Grid */
+  .container-itens-grid{
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container-grid{
+    width: 280px;
+    height: 400px;
+  }
+
+  .tamanho-bloco-imagem-grid{
+    width: 280px;
+    height: 180px;
+    border-radius: 5px;
+    margin-left: -15px;
+    margin-bottom: 10px;
+  }
+
+  .tamanho-imagem-grid{
+    max-width: 280px;
+  }
+
+  .titulo-grid{
+    color: #535353;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .cor-car-grid{
+    margin-left: 10px;
+  }
+  /* End grid */
+
+  /* List */
+  .container-itens-list{
+    display: grid;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    margin-left: 10px;
+  }
+  
+  .container-list{
+    display: flex;
+    gap: 10px;
+    width: 900px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .tamanho-bloco-imagem-list{
+    margin: 5px;
+    border-radius: 5px;
+    width: 470px;
+    height: 300px;
+  }
+
+  .tamanho-imagem-list{
+    max-width: 465px;
+  }
+
+  .titulo-list{
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 20px;
+    width: 350px;
+  }
+
+  /* Lista Informações */
+  .container-informacoes-lista{
+    margin: 10px;
+    flex: 1 0 400px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .lista-informacoes{
+    font-size: 16px;
+    line-height: 35px;
+    display: flex;
+    flex-direction: column;
+    font-weight: var(--bs-body-font-weight);
+  }
+
+  .itens-lista{
+    font-weight: 500;
+  }
+
+  .itens-lista-opcionais{
+    width: 150px;
+    margin-left: 30px;
+    line-height: 20px;
+    list-style-type: circle;
+  }
+
+  /* End Lista Informações */
+
+  /* EndList */
+  /* and (min-device-width: 360px) */
+
+  @media (max-device-width: 1260px) {
+    .container-list{
+      width: 500px;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tamanho-bloco-imagem-list{
+      width: 480px;
+      height: 355px;
+    }
+
+    .tamanho-imagem-list{
+      max-width: 490px;
+    }
+
+    .container-informacoes-lista{
+      width: 460px;
+    }
+
+    .topo-infomracoes-list{
+      width: 450px;
+      margin-left: 10px;
+    }
+    
+    .titulo-list{
+      margin-top: 0px;
+      width: 450px;
+    }
+
+  }
+
+  @media (max-device-width: 520px) {
+    .container-list{
+      width: 280px;
+    }
+
+    .tamanho-bloco-imagem-list{
+      width: 280px;
+      height: 180px;
+      margin-top: -3px;
+    }
+
+    .tamanho-imagem-list{
+      max-width: 285px;
+    }
+
+    .container-informacoes-lista{
+      width: 270px;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .topo-infomracoes-list{
+      width: 265px;
+      margin-left: 15px;
+    }
+
+    .titulo-list{
+      margin-top: 0px;
+      width: 265px;
+      font-size: 25px;
+    }
+
+  }
+
+</style>
+
+<!-- Begin Main Content Area -->
+<main class="main-content">
+  {% if personalizacoes.imagem_shop %}
+  <div
+    class="breadcrumb-area breadcrumb-height"
+    data-bg-image="{{ personalizacoes.imagem_shop.url}}"
+  >
+  {% else %}
+  <div
+  class="breadcrumb-area breadcrumb-height"
+  data-bg-image="{% static 'images/shop/Background-Shop_Lamborghini-Urus.jpg' %}"
+  >
+  {% endif %}
+    <div class="container h-100" data-aos="zoom-in" data-aos-duration="1500">
+      <div class="row h-100">
+        <div class="col-lg-12">
+          <div class="breadcrumb-item text-white">
+            {% if personalizacoes.titulo_shop %}
+            <h2 class="breadcrumb-heading">{{ personalizacoes.titulo_shop}}</h2>
+            {% else %}
+            <h2 class="breadcrumb-heading">Estoque</h2>
+            {% endif %}
+            <ul>
+              <li>
+                <a href="{% url 'home' %}">Home /</a>
+              </li>
+              <li>Estoque</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="shop-area section-space-y-axis-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-3 col-lg-4 order-lg-1 order-2 pt-10 pt-lg-0">
+          <div class="sidebar-area style-2">
+            <div class="widgets-searchbox widgets-area py-6 mb-9">
+              <form id="widgets-searchbox" action="{% url 'carro_busca' %}" method="GET">
+                <input class="input-field" type="text" name="termo" value="{{ request.GET.termo }}" autocomplete="off" placeholder="Busque aqui"/>
+                <button class="widgets-searchbox-btn" type="submit">
+                  <i class="pe-7s-search"></i>
+                </button>
+              </form>
+            </div>
+            <div
+            class="button-wrap"
+          >
+            <a
+              class="btn btn-custom-size lg-size btn-primary w-100 mb-5"
+              href="{% url 'shop' %}"
+              >Limpar pesquisa e filtros</a
+            >
+          </div>
+          <form id="widgets-checkbox-form" action="{% url 'carro_filtro' %}" method="GET">
+            <div class="widgets-area mb-9">
+              <h2 class="widgets-title mb-5">Estados de Conservação</h2>
+              <div class="widgets-item">
+                  <ul class="widgets-checkbox">
+                      {% for estado_de_conservacao in estados_de_conservacao %}
+                      <li>
+                          <input class="input-checkbox" type="checkbox" id="estado_de_conservacao-{{ estado_de_conservacao.id }}" name="filtro_estados_de_conservacao" value="{{ estado_de_conservacao.nome_estado_de_conservacao }}">
+                          <label class="label-checkbox mb-0" for="estado_de_conservacao-{{ estado_de_conservacao.id }}">
+                            {{ estado_de_conservacao.nome_estado_de_conservacao }}
+                          </label>
+                      </li>
+                      {% endfor %}
+                  </ul>
+              </div>
+            </div>
+            <div class="widgets-area mb-9">
+              <h2 class="widgets-title mb-5">Categorias</h2>
+              <div class="widgets-item">
+                  <ul class="widgets-checkbox">
+                      {% for categoria in categorias %}
+                      <li>
+                          <input class="input-checkbox" type="checkbox" id="categoria-{{ categoria.id }}" name="filtro_categorias" value="{{ categoria.nome_categoria }}">
+                          <label class="label-checkbox mb-0" for="categoria-{{ categoria.id }}">
+                            {{ categoria.nome_categoria }}
+                          </label>
+                      </li>
+                      {% endfor %}
+                  </ul>
+              </div>
+            </div>
+            <div class="widgets-area mb-9">
+              <h2 class="widgets-title mb-5">Marcas</h2>
+              <div class="widgets-item">
+                  <ul class="widgets-checkbox">
+                      {% for marca in marcas %}
+                      <li>
+                          <input class="input-checkbox" type="checkbox" id="marca-{{ marca.id }}" name="filtro_marcas" value="{{ marca.nome_marca }}">
+                          <label class="label-checkbox mb-0" for="marca-{{ marca.id }}">
+                            {{ marca.nome_marca }}
+                          </label>
+                      </li>
+                      {% endfor %}
+                  </ul>
+              </div>
+            </div>
+            <div class="widgets-area mb-9">
+              <h2 class="widgets-title mb-5">Cores</h2>
+              <div class="widgets-item">
+                <ul class="widgets-checkbox">
+                  {% for cor in cores %}
+                  <li>
+                      <input class="input-checkbox" type="checkbox" id="cor-{{ cor.id }}" name="filtro_cores" value="{{ cor.nome_cor }}">
+                      <label class="label-checkbox mb-0" for="cor-{{ cor.id }}">
+                        {{ cor.nome_cor }}
+                      </label>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <div class="widgets-area mb-9">
+              <h2 class="widgets-title mb-5">Câmbios</h2>
+              <div class="widgets-item">
+                <ul class="widgets-checkbox">
+                  {% for cambio in cambios %}
+                  <li>
+                      <input class="input-checkbox" type="checkbox" id="cambio-{{ cambio.id }}" name="filtro_cambios" value="{{ cambio.nome_cambio }}">
+                      <label class="label-checkbox mb-0" for="cambio-{{ cambio.id }}">
+                        {{ cambio.nome_cambio }}
+                      </label>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <input type="submit" class="btn btn-custom-size lg-size btn-primary w-100 mb-5" value="Filtrar">
+          </form>
+        </div>
+        </div>
+        <div class="col-xl-9 col-lg-8 order-lg-2 order-1">
+          <div class="product-topbar centro">
+            <ul>
+              <li class="product-view-wrap">
+                <ul class="nav" role="tablist">
+                  <li class="grid-view" role="presentation">
+                    <a
+                      class="active"
+                      id="grid-view-tab"
+                      data-bs-toggle="tab"
+                      href="#grid-view"
+                      role="tab"
+                      aria-selected="true"
+                    >
+                      <i class="fa fa-th"></i>
+                    </a>
+                  </li>
+                  <li class="list-view" role="presentation">
+                    <a
+                      id="list-view-tab"
+                      data-bs-toggle="tab"
+                      href="#list-view"
+                      role="tab"
+                      aria-selected="true"
+                    >
+                      <i class="fa fa-th-list"></i>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content text-charcoal pt-8">
+
+            <!-- Grid -->
+            <div
+              class="tab-pane fade show active"
+              id="grid-view"
+              role="tabpanel"
+              aria-labelledby="grid-view-tab"
+            >
+              <div class="row container-itens-grid">
+                <!-- Itens Grid -->
+                {% for car in cars %}
+                <div class="sombra-itens-grid-list container-grid" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="img-zoom-effect tamanho-bloco-imagem-grid">
+                    <a href="{% url 'carro_detalhes' car.id %}">
+                      {% for img in car.imagescar_set.all %}
+                      <img
+                        class="tamanho-imagem-grid"
+                        src="{{ img.imagem.url }}"
+                        alt="Product Images"
+                      />
+                      {% endfor %}
+                    </a>
+                  </div>
+                  <div class="container-informações">
+                    <a
+                      class="product-name pb-1 titulo-grid"
+                      href="{% url 'carro_detalhes' car.id %}"
+                      >{{ car.modelo }}</a
+                    >
+                    <div class="informacoes">
+                      <div class="price-box-holder">
+                        <span>R$ </span>
+                        <span class="text-primary">{{ car.preco|formata_preco }}</span>
+                      </div>
+                      <span>{{ car.ano }}</span>
+                      <span class="cor-car-grid">{{ car.cor }}</span>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                <!-- End Item Grid -->
+              </div>
+            </div>
+            <!-- End Grid -->
+
+            <!-- List -->
+            <div
+              class="tab-pane fade"
+              id="list-view"
+              role="tabpanel"
+              aria-labelledby="list-view-tab"
+            >
+              <div class="container-itens-list">
+                <!-- Itens List -->
+
+                {% for car in cars %}
+                <div class="container-list sombra-itens-grid-list" >
+                    <div
+                      class=" img-zoom-effect tamanho-bloco-imagem-list "
+                    >
+                      <a href="{% url 'carro_detalhes' car.id %}">
+                        {% for img in car.imagescar_set.all %}
+                        <img
+                          class="tamanho-imagem-list"
+                          src="{{ img.imagem.url }}"
+                          alt="Product Images"
+                        />
+                        {% endfor %}
+                      </a>
+                    </div>
+                    <div class="product-list-content inf conatiner-informacoes-lista">
+                      <div class="topo-infomracoes-list">
+                        <div class="titulo-list">
+                          <a href="{% url 'carro_detalhes' car.id %}">
+                          {{ car.modelo }}
+                          </a>
+                        </div>
+                        <div class="price-box pb-1">
+                          <span>R$ </span>
+                          <span class="new-price text-primary"
+                            >{{ car.preco|formata_preco }}</span
+                          >
+                        </div>
+                      </div>
+                      <div class="container-informacoes-lista">
+                        <ul class="lista-informacoes">
+                          <li><b class="itens-lista">Marca:</b> {{car.marca}}</li>
+                          <li><b class="itens-lista">Ano:</b> {{car.ano}}</li>
+                          <li><b class="itens-lista">Cor:</b> {{car.cor}}</li>
+                          <li><b class="itens-lista">Quilometragem:</b> {{car.quilometragem|formata_quilometragem}}</li>
+                          <li><b class="itens-lista">Motorização:</b> {{car.motorizacao}}</li>
+                          <li><b class="itens-lista">Câmbio:</b> {{car.cambio}}</li>
+                          <li><b class="itens-lista">Categoria:</b> {{car.categoria}}</li>
+                          <li><b class="itens-lista">Categoria de Conservação:</b> {{car.estado_de_conservacao}}</li>
+                        </ul>
+                        {% if car.opcionais %}
+                        <ul class="lista-informacoes">
+                          <li><b class="itens-lista">Opcionais: </b>
+                            <ul class="itens-lista-opcionais">
+                              {{ car.opcionais| safe }}
+                            </ul>
+                          </li>
+                        </ul>
+                        {% endif %}
+                      </div>
+                      </p>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- End Item List -->
+              </div>
+            </div>
+            <!-- End List -->
+
+          </div>
+          <!-- Paginator -->
+          <div class="pagination-area pt-10">
+            <ul class="pagination justify-content-end">
+              {% if page_obj.has_previous %}
+              <li class="page-item">
+                  <a class="page-link" href="?page=1&termo={{ request.GET.termo }}">&laquo;</a>
+              </li>
+              <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.previous_page_number }}&termo={{ request.GET.termo }}">&lsaquo;</a>
+              </li>
+              {% endif %}
+      
+              {% for num in page_obj.paginator.page_range %}
+      
+              {% if page_obj.number == num %}
+              <li class="page-item active">
+                  <a class="page-link" href="?page={{ num }}&termo={{ request.GET.termo }}">{{ num }}</a>
+              </li>
+              {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+              <li class="page-item">
+                  <a class="page-link" href="?page={{ num }}&termo={{ request.GET.termo }}">{{ num }}</a>
+              </li>
+              {% endif %}
+      
+              {% endfor %}
+      
+              {% if page_obj.has_next %}
+              <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.next_page_number }}&termo={{ request.GET.termo }}">&rsaquo;</a>
+              </li>
+              <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}&termo={{ request.GET.termo }}">&raquo;</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+          <!-- End Paginator -->
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- Main Content Area End Here -->
+
+{% endblock %}
