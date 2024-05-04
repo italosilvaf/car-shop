@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% load filters %}
+{% extends 'base.html' %} {% load static %}
 <x></x>
 {% block titulo_da_guia %}
 <title>CarShop - Estoque</title>
@@ -202,23 +202,23 @@
 
 <!-- Begin Main Content Area -->
 <main class="main-content">
-  {% if personalizacoes.imagem_shop %}
+  {% if personalizacoes.imagem_estoque %}
   <div
     class="breadcrumb-area breadcrumb-height"
-    data-bg-image="{{ personalizacoes.imagem_shop.url}}"
+    data-bg-image="{{ personalizacoes.imagem_estoque.url}}"
   >
   {% else %}
   <div
   class="breadcrumb-area breadcrumb-height"
-  data-bg-image="{% static 'images/shop/Background-Shop_Lamborghini-Urus.jpg' %}"
+  data-bg-image="{% static 'images/estoque/Background-estoque_Lamborghini-Urus.jpg' %}"
   >
   {% endif %}
     <div class="container h-100" data-aos="zoom-in" data-aos-duration="1500">
       <div class="row h-100">
         <div class="col-lg-12">
           <div class="breadcrumb-item text-white">
-            {% if personalizacoes.titulo_shop %}
-            <h2 class="breadcrumb-heading">{{ personalizacoes.titulo_shop}}</h2>
+            {% if personalizacoes.titulo_estoque %}
+            <h2 class="breadcrumb-heading">{{ personalizacoes.titulo_estoque}}</h2>
             {% else %}
             <h2 class="breadcrumb-heading">Estoque</h2>
             {% endif %}
@@ -251,7 +251,7 @@
           >
             <a
               class="btn btn-custom-size lg-size btn-primary w-100 mb-5"
-              href="{% url 'shop' %}"
+              href="{% url 'estoque' %}"
               >Limpar pesquisa e filtros</a
             >
           </div>
@@ -378,11 +378,11 @@
             >
               <div class="row container-itens-grid">
                 <!-- Itens Grid -->
-                {% for car in cars %}
+                {% for carro in carros %}
                 <div class="sombra-itens-grid-list container-grid" data-aos="fade-up" data-aos-duration="1000">
                   <div class="img-zoom-effect tamanho-bloco-imagem-grid">
-                    <a href="{% url 'carro_detalhes' car.id %}">
-                      {% for img in car.imagescar_set.all %}
+                    <a href="{% url 'carro_detalhes' carro.id %}">
+                      {% for img in carro.imagescarro_set.all %}
                       <img
                         class="tamanho-imagem-grid"
                         src="{{ img.imagem.url }}"
@@ -394,16 +394,16 @@
                   <div class="container-informações">
                     <a
                       class="product-name pb-1 titulo-grid"
-                      href="{% url 'carro_detalhes' car.id %}"
-                      >{{ car.modelo }}</a
+                      href="{% url 'carro_detalhes' carro.id %}"
+                      >{{ carro.modelo }}</a
                     >
                     <div class="informacoes">
                       <div class="price-box-holder">
                         <span>R$ </span>
-                        <span class="text-primary">{{ car.preco|formata_preco }}</span>
+                        <span class="text-primary">{{ carro.preco }}</span>
                       </div>
-                      <span>{{ car.ano }}</span>
-                      <span class="cor-car-grid">{{ car.cor }}</span>
+                      <span>{{ carro.ano }}</span>
+                      <span class="cor-car-grid">{{ carro.cor }}</span>
                     </div>
                   </div>
                 </div>
@@ -423,13 +423,13 @@
               <div class="container-itens-list">
                 <!-- Itens List -->
 
-                {% for car in cars %}
+                {% for carro in carros %}
                 <div class="container-list sombra-itens-grid-list" >
                     <div
                       class=" img-zoom-effect tamanho-bloco-imagem-list "
                     >
-                      <a href="{% url 'carro_detalhes' car.id %}">
-                        {% for img in car.imagescar_set.all %}
+                      <a href="{% url 'carro_detalhes' carro.id %}">
+                        {% for img in carro.imagescarro_set.all %}
                         <img
                           class="tamanho-imagem-list"
                           src="{{ img.imagem.url }}"
@@ -441,33 +441,33 @@
                     <div class="product-list-content inf conatiner-informacoes-lista">
                       <div class="topo-infomracoes-list">
                         <div class="titulo-list">
-                          <a href="{% url 'carro_detalhes' car.id %}">
-                          {{ car.modelo }}
+                          <a href="{% url 'carro_detalhes' carro.id %}">
+                          {{ carro.modelo }}
                           </a>
                         </div>
                         <div class="price-box pb-1">
                           <span>R$ </span>
                           <span class="new-price text-primary"
-                            >{{ car.preco|formata_preco }}</span
+                            >{{ carro.preco }}</span
                           >
                         </div>
                       </div>
                       <div class="container-informacoes-lista">
                         <ul class="lista-informacoes">
-                          <li><b class="itens-lista">Marca:</b> {{car.marca}}</li>
-                          <li><b class="itens-lista">Ano:</b> {{car.ano}}</li>
-                          <li><b class="itens-lista">Cor:</b> {{car.cor}}</li>
-                          <li><b class="itens-lista">Quilometragem:</b> {{car.quilometragem|formata_quilometragem}}</li>
-                          <li><b class="itens-lista">Motorização:</b> {{car.motorizacao}}</li>
-                          <li><b class="itens-lista">Câmbio:</b> {{car.cambio}}</li>
-                          <li><b class="itens-lista">Categoria:</b> {{car.categoria}}</li>
-                          <li><b class="itens-lista">Categoria de Conservação:</b> {{car.estado_de_conservacao}}</li>
+                          <li><b class="itens-lista">Marca:</b> {{carro.marca}}</li>
+                          <li><b class="itens-lista">Ano:</b> {{carro.ano}}</li>
+                          <li><b class="itens-lista">Cor:</b> {{carro.cor}}</li>
+                          <li><b class="itens-lista">Quilometragem:</b> {{carro.quilometragem}}</li>
+                          <li><b class="itens-lista">Motorização:</b> {{carro.motorizacao}}</li>
+                          <li><b class="itens-lista">Câmbio:</b> {{carro.cambio}}</li>
+                          <li><b class="itens-lista">Categoria:</b> {{carro.categoria}}</li>
+                          <li><b class="itens-lista">Categoria de Conservação:</b> {{carro.estado_de_conservacao}}</li>
                         </ul>
-                        {% if car.opcionais %}
+                        {% if carro.opcionais %}
                         <ul class="lista-informacoes">
                           <li><b class="itens-lista">Opcionais: </b>
                             <ul class="itens-lista-opcionais">
-                              {{ car.opcionais| safe }}
+                              {{ carro.opcionais }}
                             </ul>
                           </li>
                         </ul>

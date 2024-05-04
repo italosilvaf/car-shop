@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load static %} {% load filters %}
 <x></x>
 {% block titulo_da_guia %}
-<title>CarShop - {{car.modelo}}</title>
+<title>CarShop - {{carro.modelo}}</title>
 {% endblock %} {% block conteudo %}
 
 <style>
@@ -96,7 +96,7 @@
             >
               <div class="swiper-wrapper">
                 <!-- Imagens -->
-                {% for img in car.imagescar_set.all %}
+                {% for img in carro.imagescarro_set.all %}
                 <div class="swiper-slide">
                   <a
                     href="{{ img.imagem.url }}"
@@ -116,7 +116,7 @@
               <div class="swiper-container single-product-thumbs">
                 <div class="swiper-wrapper">
                   <!-- Imagens -->
-                  {% for img in car.imagescar_set.all %}
+                  {% for img in carro.imagescarro_set.all %}
                   <a href="#" class="swiper-slide">
                     <img
                       class="img-full"
@@ -141,42 +141,42 @@
         </div>
         <div class="col-lg-6 pt-9 pt-lg-0">
           <div class="single-product-content">
-            <h2 class="titulo-detalhes mb-3">{{ car.modelo }}</h2>
+            <h2 class="titulo-detalhes mb-3">{{ carro.modelo }}</h2>
             <div class="container-lista">
               <ul class="lista">
                 <li>
                   <div class="price-box pb-3 container-preco">
                     <span class="new-price text-color">R$</span>
                     <span class="new-price text-danger"
-                      >{{ car.preco|formata_preco }}</span
+                      >{{ carro.preco|formata_preco }}</span
                     >
                   </div>
                 </li>
-                <li><b class="itens-lista">Marca:</b> {{car.marca}}</li>
-                <li><b class="itens-lista">Ano:</b> {{car.ano}}</li>
-                <li><b class="itens-lista">Cor:</b> {{car.cor}}</li>
+                <li><b class="itens-lista">Marca:</b> {{carro.marca}}</li>
+                <li><b class="itens-lista">Ano:</b> {{carro.ano}}</li>
+                <li><b class="itens-lista">Cor:</b> {{carro.cor}}</li>
                 <li>
                   <b class="itens-lista">Quilometragem:</b>
-                  {{car.quilometragem|formata_quilometragem}}
+                  {{carro.quilometragem|formata_quilometragem}}
                 </li>
                 <li>
-                  <b class="itens-lista">Motorização:</b> {{car.motorizacao}}
+                  <b class="itens-lista">Motorização:</b> {{carro.motorizacao}}
                 </li>
-                <li><b class="itens-lista">Câmbio:</b> {{car.cambio}}</li>
+                <li><b class="itens-lista">Câmbio:</b> {{carro.cambio}}</li>
                 <li>
-                  <b class="itens-lista">Categoria:</b> {{car.categoria}}
+                  <b class="itens-lista">Categoria:</b> {{carro.categoria}}
                 </li>
                 <li>
                   <b class="itens-lista">Categoria de Conservação:</b>
-                  {{ car.estado_de_conservacao}}
+                  {{ carro.estado_de_conservacao}}
                 </li>
               </ul>
-              {% if car.opcionais %}
+              {% if carro.opcionais %}
               <ul class="lista">
                 <li class="lista-opcionais">
                   <b class="itens-lista">Opcionais: </b>
                   <ul class="itens-lista-opcionais">
-                    {{ car.opcionais| safe }}
+                    {{ carro.opcionais| safe }}
                   </ul>
                 </li>
               </ul>
@@ -190,7 +190,7 @@
                 <li class="add-to-cart">
                   <a
                     class="btn btn-custom-size lg-sizes btn-primary"
-                    href="https://api.whatsapp.com/send?phone=553496540161&text=Tenho%20interesse%20em%20um%20dos%20seus%20carros.%20🚗%20{{car.modelo}},%20📆%20{{car.ano}},%20🎨%20{{car.cor}},%20{{car.quilometragem|formata_quilometragem}},%20💵%20R${{car.preco|formata_preco}}."
+                    href="https://api.whatsapp.com/send?phone=553496540161&text=Tenho%20interesse%20em%20um%20dos%20seus%20carros.%20🚗%20{{carro.modelo}},%20📆%20{{carro.ano}},%20🎨%20{{carro.cor}},%20{{carro.quilometragem|formata_quilometragem}},%20💵%20R${{carro.preco|formata_preco}}."
                     target="_blank"
                     >Entrar em contato <i class="fa fa-whatsapp"></i
                   ></a>
