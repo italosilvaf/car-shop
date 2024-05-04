@@ -49,7 +49,7 @@ from django.db import models
 class SobreNosModels(models.Model):
 
     nome_sobre_nos = models.CharField(
-        max_length=50, verbose_name='Página',  blank=False, null=False, default='About')
+        max_length=50, verbose_name='Página',  blank=False, null=False, default='Sobre Nós')
     titulo_sobre_nos = models.CharField(
         max_length=50, verbose_name='Título',  blank=True, null=True, default=None)
     imagem_sobre_nos = models.ImageField(
