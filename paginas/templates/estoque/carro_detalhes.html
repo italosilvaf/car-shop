@@ -1,0 +1,208 @@
+{% extends 'base.html' %} {% load static %} {% load filters %}
+<x></x>
+{% block titulo_da_guia %}
+<title>JMcars - {{car.modelo}}</title>
+{% endblock %} {% block conteudo %}
+
+<style>
+  .text-color {
+    color: #444444;
+  }
+
+  .container_carro_detalhes {
+    z-index: 1;
+  }
+
+  .titulo-detalhes {
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .container-lista {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    flex: 1 0 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #444444;
+  }
+
+  .lista {
+    font-size: 16px;
+    line-height: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .itens-lista {
+    font-weight: 500;
+  }
+
+  .lista-opcionais {
+    justify-content: flex-start;
+  }
+
+  .itens-lista-opcionais {
+    width: 150px;
+    line-height: 20px;
+    list-style-type: circle;
+  }
+
+  .titulo-tem-interesse {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 500;
+    color: #444444;
+  }
+
+  .botao-entrar-em-contato {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+  }
+
+  .btn-custom-size.lg-sizes {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+  }
+
+  @media (max-device-width: 768px) {
+    .single-product-img {
+      margin-top: 30px;
+    }
+  }
+</style>
+
+<!-- Begin Main Content Area  -->
+<main class="main-content mb-5">
+  <div
+    class="single-product-area section-space-top-100 container_carro_detalhes"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="single-product-img">
+            <div
+              class="swiper-container single-product-slider container_detalhes"
+            >
+              <div class="swiper-wrapper">
+                <!-- Imagens -->
+                {% for img in car.imagescar_set.all %}
+                <div class="swiper-slide">
+                  <a
+                    href="{{ img.imagem.url }}"
+                    class="single-img gallery-popup"
+                  >
+                    <img
+                      class="img-full"
+                      src="{{ img.imagem.url }}"
+                      alt="Product Image"
+                    />
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="thumbs-arrow-holder">
+              <div class="swiper-container single-product-thumbs">
+                <div class="swiper-wrapper">
+                  <!-- Imagens -->
+                  {% for img in car.imagescar_set.all %}
+                  <a href="#" class="swiper-slide">
+                    <img
+                      class="img-full"
+                      src="{{ img.imagem.url }}"
+                      alt="Product Thumnail"
+                    />
+                  </a>
+                  {% endfor %}
+                </div>
+              </div>
+              <!-- Add Arrows -->
+              <div class="thumbs-button-wrap d-none d-md-block">
+                <div class="thumbs-button-prev">
+                  <i class="pe-7s-angle-left"></i>
+                </div>
+                <div class="thumbs-button-next">
+                  <i class="pe-7s-angle-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 pt-9 pt-lg-0">
+          <div class="single-product-content">
+            <h2 class="titulo-detalhes mb-3">{{ car.modelo }}</h2>
+            <div class="container-lista">
+              <ul class="lista">
+                <li>
+                  <div class="price-box pb-3 container-preco">
+                    <span class="new-price text-color">R$</span>
+                    <span class="new-price text-danger"
+                      >{{ car.preco|formata_preco }}</span
+                    >
+                  </div>
+                </li>
+                <li><b class="itens-lista">Marca:</b> {{car.marca}}</li>
+                <li><b class="itens-lista">Ano:</b> {{car.ano}}</li>
+                <li><b class="itens-lista">Cor:</b> {{car.cor}}</li>
+                <li>
+                  <b class="itens-lista">Quilometragem:</b>
+                  {{car.quilometragem|formata_quilometragem}}
+                </li>
+                <li>
+                  <b class="itens-lista">Motorização:</b> {{car.motorizacao}}
+                </li>
+                <li><b class="itens-lista">Câmbio:</b> {{car.cambio}}</li>
+                <li>
+                  <b class="itens-lista">Categoria:</b> {{car.categoria}}
+                </li>
+                <li>
+                  <b class="itens-lista">Categoria de Conservação:</b>
+                  {{ car.estado_de_conservacao}}
+                </li>
+              </ul>
+              {% if car.opcionais %}
+              <ul class="lista">
+                <li class="lista-opcionais">
+                  <b class="itens-lista">Opcionais: </b>
+                  <ul class="itens-lista-opcionais">
+                    {{ car.opcionais| safe }}
+                  </ul>
+                </li>
+              </ul>
+              {% endif %}
+            </div>
+            <div class="titulo-tem-interesse">
+              Tem Interesse? Entre em contato.
+            </div>
+            <div class="botao-entrar-em-contato">
+              <ul class="quantity-with-btn pb-9 pt-2">
+                <li class="add-to-cart">
+                  <a
+                    class="btn btn-custom-size lg-sizes btn-primary"
+                    href="https://api.whatsapp.com/send?phone=553496540161&text=Tenho%20interesse%20em%20um%20dos%20seus%20carros.%20🚗%20{{car.modelo}},%20📆%20{{car.ano}},%20🎨%20{{car.cor}},%20{{car.quilometragem|formata_quilometragem}},%20💵%20R${{car.preco|formata_preco}}."
+                    target="_blank"
+                    >Entrar em contato <i class="fa fa-whatsapp"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- Main Content Area End Here  -->
+
+{% endblock %}

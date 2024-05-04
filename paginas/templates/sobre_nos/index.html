@@ -1,0 +1,225 @@
+{% extends 'base.html' %} {% load static %} {% block titulo_da_guia %}
+<title>JMcars - Sobre Nós</title>
+{% endblock %} {% block conteudo %}
+
+<style>
+  .container-funcionarios {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .funcionario-imagem {
+    width: 300px;
+    height: 400px;
+  }
+
+  .scroll-horizontal-removido {
+    overflow: hidden;
+  }
+</style>
+
+<!-- Begin Main Content Area -->
+<main class="main-content scroll-horizontal-removido">
+  {% if personalizacoes.imagem_about %}
+  <div
+    class="breadcrumb-area breadcrumb-height"
+    data-bg-image="{{ personalizacoes.imagem_about.url}}"
+  >
+  {% else %}
+  <div
+  class="breadcrumb-area breadcrumb-height"
+  data-bg-image="{% static 'images/about/Background-About_Audi-R8.jpg' %}"
+  >
+  {% endif %}
+    <div class="container h-100" data-aos="zoom-in" data-aos-duration="1500">
+      <div class="row h-100">
+        <div class="col-lg-12">
+          <div class="breadcrumb-item text-white">
+            {% if personalizacoes.titulo_about %}
+            <h2 class="breadcrumb-heading">{{ personalizacoes.titulo_about }}</h2>
+            {% else %}
+            <h2 class="breadcrumb-heading">Sobre nós</h2>
+            {% endif %}
+            <ul>
+              <li>
+                <a href="{% url 'home' %}">Home /</a>
+              </li>
+              <li>Sobre Nós</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about-banner different-bg-position section-space-y-axis-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="about-banner-content text-center section-space-bottom-95">
+            <div
+              class="section-title"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+            {% if personalizacoes.subtitulo_texto_about %}
+              <span class="about-sub-title text-primary"
+                >{{ personalizacoes.subtitulo_texto_about }}
+              </span>
+            {% else %}
+              <span class="about-sub-title text-primary"
+                >História da
+              </span>
+            {% endif %}
+            {% if personalizacoes.titulo_texto_about %}
+              <h2 class="about-title mb-5">{{ personalizacoes.titulo_texto_about }}</h2>
+            {% else %}
+              <h2 class="about-title mb-5">JMcars</h2>
+            {% endif %}
+            {% if personalizacoes.texto_about %}
+              <p class="short-desc mb-0">{{ personalizacoes.texto_about}}</p>
+            {% else %}
+              <p class="short-desc mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic assumenda vero ipsa consequuntur illum laudantium aliquam eligendi facere eaque dolore dolor expedita dignissimos consectetur, cupiditate iste et distinctio delectus est! Tempore reiciendis deleniti corrupti et, magnam tempora ad est officiis aliquam, fugit beatae quasi eum iusto harum ex facilis totam. Amet natus reiciendis suscipit porro dolorum, vel harum quidem explicabo distinctio doloremque iure nam omnis magni rerum! Alias cumque necessitatibus modi laborum laudantium dolor atque eos quibusdam minus rem deleniti sunt, error quis molestias, itaque eligendi officiis culpa qui ducimus a nesciunt distinctio consequatur corporis? Nam, at aspernatur culpa delectus inventore dolorem pariatur eaque, magnam, sapiente enim ex eligendi quos quibusdam sint. Veniam, accusantium sapiente ex iure excepturi adipisci et placeat corrupti iste minus, labore nesciunt deserunt culpa odit repudiandae provident in earum officiis vero dolor neque reprehenderit soluta quos unde. Eaque minus deleniti dolore, et porro expedita iusto explicabo ullam sapiente eveniet sed placeat officia ex accusantium facere repellat laudantium similique sequi rem. Facilis, necessitatibus illo ducimus doloribus sed sequi ipsum fugiat eveniet quam officiis quia ratione perspiciatis sapiente deserunt tempora porro, numquam iste accusantium amet eos aliquid quo. Tempora blanditiis consectetur delectus tempore odio, aut suscipit.</p>
+            {% endif %}
+            </div>
+          </div>
+          <div class="about-banner-img row">
+            <div class="col-lg-4">
+              <div
+                class="single-img img-hover-effect"
+                data-aos="fade-up-right"
+                data-aos-duration="1000"
+              >
+              {% if personalizacoes.imagem_texto_um_about %}
+                <img
+                  class="img-full"
+                  src="{{ personalizacoes.imagem_texto_um_about.url }}"
+                  alt="About Banner"
+                />
+              {% else %}
+                <img
+                  class="img-full"
+                  src="{% static 'images/about/Imagem-Texto-About_Capacetes.png' %}"
+                  alt="About Banner"
+                />
+              {% endif%}
+              </div>
+            </div>
+            <div class="col-lg-4 section-space-top-100">
+              <div
+                class="single-img img-hover-effect"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
+              {% if personalizacoes.imagem_texto_dois_about %}
+                <img
+                  class="img-full"
+                  src="{{ personalizacoes.imagem_texto_dois_about.url }}"
+                  alt="About Banner"
+                />
+              {% else %}
+                <img
+                  class="img-full"
+                  src="{% static 'images/about/Imagem-Texto-About_Chave-de-roda.png' %}"
+                  alt="About Banner"
+                />
+              {% endif%}
+              </div>
+            </div>
+            <div class="col-lg-4 section-space-top-100 pt-lg-0">
+              <div
+                class="single-img img-hover-effect"
+                data-aos="fade-up-left"
+                data-aos-duration="1000"
+              >
+              {% if personalizacoes.imagem_texto_tres_about %}
+                <img
+                  class="img-full"
+                  src="{{ personalizacoes.imagem_texto_tres_about.url }}"
+                  alt="About Banner"
+                />
+              {% else %}
+                <img
+                  class="img-full"
+                  src="{% static 'images/about/Imagem-Texto-About_Pneus.png' %}"
+                  alt="About Banner"
+                />
+              {% endif%}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% if funcionarios %}
+  <div class="team-member mt-5 mb-10">
+    <div
+      class="section-title text-center"
+      data-aos="fade-right"
+      data-aos-duration="1000"
+    >
+      <span class="about-sub-title text-primary"
+        >Membros da
+      </span>
+
+      <h2 class="about-title titulo-funcionarios mb-5">
+        Equipe JMcars
+      </h2>
+
+    </div>
+    <div class="container-funcionarios">
+      {% for funci in funcionarios %}
+      <div class="funcionário" data-aos="fade-up" data-aos-duration="1000">
+        <div class="team-member-item img-gradient-effect">
+          <div class="team-member-img">
+            <a>
+              <img
+                class="img-full funcionario-imagem"
+                src="{{ funci.foto.url }}"
+                alt="Team Member"
+              />
+            </a>
+          </div>
+          <div class="team-member-content">
+            <h2 class="title mb-0">{{ funci.nome }}</h2>
+            {% if funci.cargo %}
+            <span class="occupation">{{ funci.cargo }}</span>
+            {% endif %}
+            <!---->
+            {%if funci.link_insta or funci.link_whats or funci.link_face%}
+            <div class="social-link with-border pt-2">
+              <ul>
+                {% if funci.link_insta %}
+                <li>
+                  <a href="{{ funci.link_insta }}" target="_blank">
+                    <i class="fa fa-instagram"></i>
+                  </a>
+                </li>
+                {% endif %} {% if funci.link_whats %}
+                <li>
+                  <a href="{{ funci.link_whats }}" target="_blank">
+                    <i class="fa fa-whatsapp"></i>
+                  </a>
+                </li>
+                {% endif %} {% if funci.link_face %}
+                <li>
+                  <a href="{{ funci.link_face }}" target="_blank">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% endif %} {% endblock %}
+</main>

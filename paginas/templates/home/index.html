@@ -1,0 +1,514 @@
+{% extends 'base.html' %} {% load static %} {% load filters %}
+<x></x>
+{% block titulo_da_guia %}
+<title>JMcars - Home</title>
+{% endblock %} {% block conteudo %}
+
+<style>
+  .titulo-home {
+    font-size: 100px;
+    text-transform: uppercase;
+  }
+
+  .short-descricao {
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .estados_de_conservacao-home {
+    justify-content: center;
+  }
+
+  .qualidade-home {
+    justify-content: center;
+    background-color: #e8e8e8;
+    margin: 10px;
+  }
+
+  .qualidade-home-item {
+    width: 350px;
+    height: 150px;
+    padding: 10px;
+    margin: 15px;
+  }
+
+  .qualidade-home-item-ajuste {
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .qualidade-home-moldura-icon {
+    width: 80px;
+  }
+
+  .qualidade-home-icon {
+    width: 75px;
+    height: 75px;
+  }
+
+  .imagem-estado_de_conservacao {
+    max-width: 400px;
+    max-height: 250px;
+  }
+
+  .quadrado-item {
+    width: 300px;
+    height: 400px;
+    box-shadow: 0px 2px 2px #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-family: var(--bs-body-font-family);
+  }
+
+  .tamanho-bloco-imagem {
+    width: 300px;
+    height: 220px;
+  }
+
+  .tamanho-imagem {
+    max-width: 310px;
+  }
+
+  .container-informações {
+    font-family: var(--bs-body-font-family);
+    margin: 10px;
+    height: 200px;
+  }
+
+  .titulo-infomacoes {
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  .informacoes {
+    font-size: 16px;
+  }
+
+  .cor-car-grid {
+    margin-left: 10px;
+  }
+
+  .ver-todos {
+    font-size: 20px;
+    margin-top: -30px;
+    text-decoration: underline;
+    color: #7f7f7f;
+  }
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+  }
+
+  .container-itens-destaque {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .setinhas {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+  }
+
+  @media (max-device-width: 1599px) and (min-device-width: 1501px) {
+    .quadrado-item {
+      width: 265px;
+      height: 400px;
+    }
+
+    .tamanho-bloco-imagem {
+      width: 265px;
+      height: 200px;
+    }
+
+    .tamanho-imagem {
+      max-width: 270px;
+    }
+
+    .container-carrossel {
+      width: 1300px;
+    }
+  }
+
+  @media (max-device-width: 1599px) and (min-device-width: 1200px) {
+    .qualidade-home {
+      margin: 0px;
+    }
+  }
+
+  @media (max-device-width: 1199px) and (min-device-width: 992px) {
+    .quadrado-item {
+      width: 280px;
+      height: 400px;
+    }
+
+    .tamanho-bloco-imagem {
+      width: 280px;
+      height: 200px;
+    }
+
+    .tamanho-imagem {
+      max-width: 280px;
+    }
+  }
+
+  @media (max-device-width: 991px) and (min-device-width: 768px) {
+    .qualidade-home-item {
+      width: 500px;
+      height: 150px;
+    }
+  }
+
+  @media (max-device-width: 767px) and (min-device-width: 576px) {
+    .qualidade-home-item {
+      width: 450px;
+      height: 200px;
+    }
+
+    .quadrado-item {
+      width: 245px;
+      height: 350px;
+    }
+
+    .tamanho-bloco-imagem {
+      width: 254px;
+      height: 180px;
+    }
+
+    .tamanho-imagem {
+      max-width: 255px;
+    }
+
+    .container-carrossel {
+      width: 585px;
+      margin-left: -35px;
+    }
+
+    .short-descricao {
+      font-size: 16px;
+    }
+
+    .titulo-home {
+      font-size: 55px;
+    }
+  }
+
+  @media (max-device-width: 575px) and (min-device-width: 486px) {
+    .qualidade-home-item {
+      width: 450px;
+      height: 200px;
+    }
+
+    .quadrado-item {
+      width: 300px;
+      height: 400px;
+    }
+
+    .tamanho-bloco-imagem {
+      width: 300px;
+      height: 220px;
+    }
+
+    .tamanho-imagem {
+      max-width: 310px;
+    }
+
+    .container-carrossel {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .short-descricao {
+      font-size: 16px;
+    }
+
+    .titulo-home {
+      font-size: 55px;
+    }
+  }
+
+  @media (max-device-width: 485px) and (min-device-width: 360px) {
+    .qualidade-home-item {
+      width: 450px;
+      height: 200px;
+    }
+
+    .quadrado-item {
+      width: 245px;
+      height: 350px;
+    }
+
+    .tamanho-bloco-imagem {
+      width: 254px;
+      height: 180px;
+    }
+
+    .tamanho-imagem {
+      max-width: 255px;
+    }
+
+    .short-descricao {
+      font-size: 16px;
+    }
+
+    .titulo-home {
+      font-size: 55px;
+    }
+  }
+
+  @media (max-device-width: 360px) {
+    .qualidade-home-item {
+      width: 450px;
+      height: 210px;
+    }
+
+    .quadrado-item {
+      width: 210px;
+      height: 335px;
+    }
+
+    .tamanho-bloco-imagem {
+      width: 210px;
+      height: 150px;
+    }
+
+    .tamanho-imagem {
+      max-width: 215px;
+    }
+
+    .short-descricao {
+      font-size: 16px;
+    }
+
+    .titulo-home {
+      font-size: 55px;
+    }
+  }
+</style>
+
+<!-- Begin Slider Area -->
+{% if personalizacoes.imagem_home %}
+<div
+  class="slide-inner bg-height"
+  data-bg-image="{{ personalizacoes.imagem_home.url }}"
+>
+  {% else %}
+  <div
+    class="slide-inner bg-height"
+    data-bg-image="{% static 'images/home/Background-Home_BMW-M4.jpeg' %}"
+  >
+    {% endif %}
+    <div class="container">
+      <div
+        class="slide-content text-white"
+        data-aos="zoom-in"
+        data-aos-duration="1500"
+      >
+        {% if personalizacoes.subtitulo_home %}
+        <h3 class="sub-title">{{ personalizacoes.subtitulo_home }}</h3>
+        {% endif %} {% if personalizacoes.titulo_home %}
+        <h2 class="titulo-home mb-3">{{ personalizacoes.titulo_home }}</h2>
+        {% else %}
+        <h2 class="titulo-home mb-3">JMcars</h2>
+        {% endif %} {% if personalizacoes.descricao_home %}
+        <p class="short-descricao different-width mb-10">
+          {{ personalizacoes.descricao_home }}
+        </p>
+        {% endif %}
+        <div class="button-wrap">
+          <a
+            class="btn btn-custom-size lg-size btn-primary"
+            href="#botao-saiba-mais"
+            >SAIBA MAIS</a
+          >
+        </div>
+        <div id="botao-saiba-mais"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Slider Area End Here -->
+
+  <div id="botao-saiba-mais"></div>
+
+  <div class="background-img">
+    <div class="inner-bg">
+      <img
+        src="{% static 'tromic/assets/images/background-img/inner-bg/1-1-496x566.png' %}"
+        alt="Inner Background"
+      />
+    </div>
+    <div class="banner-area section-space-top-100">
+      <div class="container">
+        <div class="row estados_de_conservacao-home">
+          {% for estado_de_conservacao in estados_de_conservacao %}
+          <td></td>
+          {% if estado_de_conservacao.imagem_estado_de_conservacao %}
+          <div
+            class="col-lg-4 col-md-6 mt-3 mb-3"
+            data-aos="flip-left"
+            data-aos-duration="1000"
+          >
+            <div class="banner-item img-hover-effect">
+              <div class="banner-img img-zoom-effect">
+                <img
+                  class="img-full imagem-estado_de_conservacao"
+                  src="{{ estado_de_conservacao.imagem_estado_de_conservacao.url }}"
+                  alt="Banner Image"
+                />
+                <div class="inner-content text-white">
+                  <h2 class="title mb-5">
+                    {{ estado_de_conservacao.nome_estado_de_conservacao }}
+                  </h2>
+                  <div class="button-wrap">
+                    <a class="btn btn-custom-size btn-primary" href="#"
+                      >VER MODELOS</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %} {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Begin Shipping Area -->
+    <div class="shipping-area section-space-y-axis-100">
+      <div class="container" data-aos="fade-up" data-aos-duration="1000">
+        <div class="row shipping-wrap py-5 py-xl-0 qualidade-home">
+          {% for qualidade in qualidades %}
+          <div class="col-lg-4 qualidade-home-item">
+            <div class="shipping-item qualidade-home-item-ajuste">
+              <div class="shipping-img qualidade-home-moldura-icon">
+                <img
+                  class="qualidade-home-icon"
+                  src="{{ qualidade.icon_qualidade.url }}"
+                  alt="Shipping Icon"
+                />
+              </div>
+              <div class="shipping-content">
+                <h2 class="title">{{ qualidade.nome_qualidade }}</h2>
+                {% if qualidade.descricao_qualidade %}
+                <p class="short-desc mb-0">
+                  {{ qualidade.descricao_qualidade }}
+                </p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <!-- Shipping Area End Here -->
+  </div>
+
+  <!-- Begin Product Area -->
+  {% if cars %}
+  <div
+    class="background-img"
+    data-bg-image="{% static 'tromic/assets/images/background-img/1-2-1920x716.jpg' %}"
+  >
+    <div class="product-area section-space-y-axis-100 product-arrow">
+      <div class="container">
+        <div
+          class="section-title pb-55"
+          data-aos="zoom-in-up"
+          data-aos-duration="1000"
+        >
+          <h2 class="title mb-0">Veículos em Destaque</h2>
+        </div>
+        <div
+          class="mb-5 ver-todos"
+          data-aos="zoom-in-up"
+          data-aos-duration="1000"
+        >
+          <a href="{% url 'shop' %}">Ver todos os modelos</a>
+        </div>
+        <div
+          class="row container-carrossel"
+          data-aos="zoom-in-up"
+          data-aos-duration="1000"
+        >
+          <div class="col-lg-12 container-itens-destaque">
+            <div class="swiper-container product-slider">
+              <div class="swiper-wrapper text-heading">
+                {% for car in cars %}
+                <div class="swiper-slide">
+                  <div class="product-item quadrado-item">
+                    <div
+                      class="product-img img-zoom-effect tamanho-bloco-imagem"
+                    >
+                      <a href="{% url 'carro_detalhes' car.id %}">
+                        {% for img in car.imagescar_set.all %}
+                        <img
+                          class="tamanho-imagem"
+                          src="{{ img.imagem.url }}"
+                          alt="Product Images"
+                        />
+                        {% endfor %}
+                      </a>
+                    </div>
+                    <div class="container-informações">
+                      <a
+                        class="product-name pb-1 titulo-infomacoes"
+                        href="{% url 'carro_detalhes' car.id %}"
+                        >{{ car.modelo }}</a
+                      >
+                      <div class="informacoes">
+                        <div class="price-box-holder">
+                          <span>R$ </span>
+                          <span class="text-primary"
+                            >{{ car.preco|formata_preco }}</span
+                          >
+                        </div>
+                        <span>{{ car.ano }}</span>
+                        <span class="cor-car-grid">{{ car.cor }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="setinhas">
+            <!-- Botão esquerdo -->
+            <div class="product-button-wrap pt-10">
+              <div class="product-button-prev">
+                <i class="pe-7s-angle-left"></i>
+              </div>
+            </div>
+            <!-- End Botão esquerdo -->
+
+            <!-- Botão direito -->
+            <div class="product-button-wrap pt-10">
+              <div class="product-button-next">
+                <i class="pe-7s-angle-right"></i>
+              </div>
+            </div>
+            <!-- End Botão direito -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <!-- Product Area End Here -->
+
+  {% endblock %}
+</div>
