@@ -97,6 +97,10 @@ class FuncionarioModels(models.Model):
     def __str__(self):
         return self.nome
 
+    class Meta:
+        verbose_name = 'Funcionario'
+        verbose_name_plural = 'Funcionarios'
+
 
 class EstoqueModels(models.Model):
 
