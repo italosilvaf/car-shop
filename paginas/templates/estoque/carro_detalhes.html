@@ -96,7 +96,7 @@
             >
               <div class="swiper-wrapper">
                 <!-- Imagens -->
-                {% for img in carro.imagescarro_set.all %}
+                {% for img in carro.imagescarromodels_set.all %}
                 <div class="swiper-slide">
                   <a
                     href="{{ img.imagem.url }}"
@@ -116,7 +116,7 @@
               <div class="swiper-container single-product-thumbs">
                 <div class="swiper-wrapper">
                   <!-- Imagens -->
-                  {% for img in carro.imagescarro_set.all %}
+                  {% for img in carro.imagescarromodels_set.all %}
                   <a href="#" class="swiper-slide">
                     <img
                       class="img-full"

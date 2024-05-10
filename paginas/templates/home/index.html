@@ -454,7 +454,7 @@
                       class="product-img img-zoom-effect tamanho-bloco-imagem"
                     >
                       <a href="{% url 'carro_detalhes' carro.id %}">
-                        {% for img in carro.imagescar_set.all %}
+                        {% for img in carro.imagescarromodels_set.all %}
                         <img
                           class="tamanho-imagem"
                           src="{{ img.imagem.url }}"
