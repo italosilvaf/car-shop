@@ -7,64 +7,119 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='CambioModels',
+            name="CambioModels",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome_cambio', models.CharField(max_length=50, verbose_name='Câmbio')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nome_cambio", models.CharField(max_length=50, verbose_name="Câmbio")),
             ],
             options={
-                'verbose_name': 'Câmbio',
-                'verbose_name_plural': 'Câmbios',
+                "verbose_name": "Câmbio",
+                "verbose_name_plural": "Câmbios",
             },
         ),
         migrations.CreateModel(
-            name='CategoriaModels',
+            name="CategoriaModels",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome_categoria', models.CharField(max_length=50, verbose_name='Categoria')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "nome_categoria",
+                    models.CharField(max_length=50, verbose_name="Categoria"),
+                ),
             ],
             options={
-                'verbose_name': 'Categoria',
-                'verbose_name_plural': 'Categorias',
+                "verbose_name": "Categoria",
+                "verbose_name_plural": "Categorias",
             },
         ),
         migrations.CreateModel(
-            name='CorModels',
+            name="CorModels",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome_cor', models.CharField(max_length=50, verbose_name='Cor')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nome_cor", models.CharField(max_length=50, verbose_name="Cor")),
             ],
             options={
-                'verbose_name': 'Cor',
-                'verbose_name_plural': 'Cores',
+                "verbose_name": "Cor",
+                "verbose_name_plural": "Cores",
             },
         ),
         migrations.CreateModel(
-            name='EstadoDeConservacaoModels',
+            name="EstadoDeConservacaoModels",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome_estado_de_conservacao', models.CharField(max_length=50, verbose_name='Estado de Conservação')),
-                ('imagem_estado_de_conservacao', models.ImageField(blank=True, null=True, upload_to='imagens_estado_de_conservacao', verbose_name='Imagem do quadrado na Home (400x250)')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "nome_estado_de_conservacao",
+                    models.CharField(
+                        max_length=50, verbose_name="Estado de Conservação"
+                    ),
+                ),
+                (
+                    "imagem_estado_de_conservacao",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="imagens_estado_de_conservacao",
+                        verbose_name="Imagem do quadrado na Home (400x250)",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Estado de Conservação',
-                'verbose_name_plural': 'Estados de Conservação',
+                "verbose_name": "Estado de Conservação",
+                "verbose_name_plural": "Estados de Conservação",
             },
         ),
         migrations.CreateModel(
-            name='MarcaModels',
+            name="MarcaModels",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome_marca', models.CharField(max_length=50, verbose_name='Marca')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nome_marca", models.CharField(max_length=50, verbose_name="Marca")),
             ],
             options={
-                'verbose_name': 'Marca',
-                'verbose_name_plural': 'Marcas',
+                "verbose_name": "Marca",
+                "verbose_name_plural": "Marcas",
             },
         ),
     ]

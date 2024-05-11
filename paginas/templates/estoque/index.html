@@ -71,7 +71,7 @@
     justify-content: center;
     margin-left: 10px;
   }
-  
+
   .container-list{
     display: flex;
     gap: 10px;
@@ -155,7 +155,7 @@
       width: 450px;
       margin-left: 10px;
     }
-    
+
     .titulo-list{
       margin-top: 0px;
       width: 450px;
@@ -494,9 +494,9 @@
                   <a class="page-link" href="?page={{ page_obj.previous_page_number }}&termo={{ request.GET.termo }}">&lsaquo;</a>
               </li>
               {% endif %}
-      
+
               {% for num in page_obj.paginator.page_range %}
-      
+
               {% if page_obj.number == num %}
               <li class="page-item active">
                   <a class="page-link" href="?page={{ num }}&termo={{ request.GET.termo }}">{{ num }}</a>
@@ -506,9 +506,9 @@
                   <a class="page-link" href="?page={{ num }}&termo={{ request.GET.termo }}">{{ num }}</a>
               </li>
               {% endif %}
-      
+
               {% endfor %}
-      
+
               {% if page_obj.has_next %}
               <li class="page-item">
                   <a class="page-link" href="?page={{ page_obj.next_page_number }}&termo={{ request.GET.termo }}">&rsaquo;</a>
