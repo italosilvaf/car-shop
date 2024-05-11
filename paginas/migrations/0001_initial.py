@@ -7,85 +7,346 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='EstoqueModels',
+            name="EstoqueModels",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome_estoque', models.CharField(default='Estoque', max_length=50, verbose_name='Página')),
-                ('titulo_estoque', models.CharField(blank=True, default=None, max_length=40, null=True, verbose_name='Título')),
-                ('imagem_estoque', models.ImageField(blank=True, default=None, null=True, upload_to='imagens_estoque/imagens_background', verbose_name='Background (1920x400)')),
-                ('publicado_estoque', models.BooleanField(default=False, verbose_name='Publicado')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "nome_estoque",
+                    models.CharField(
+                        default="Estoque", max_length=50, verbose_name="Página"
+                    ),
+                ),
+                (
+                    "titulo_estoque",
+                    models.CharField(
+                        blank=True,
+                        default=None,
+                        max_length=40,
+                        null=True,
+                        verbose_name="Título",
+                    ),
+                ),
+                (
+                    "imagem_estoque",
+                    models.ImageField(
+                        blank=True,
+                        default=None,
+                        null=True,
+                        upload_to="imagens_estoque/imagens_background",
+                        verbose_name="Background (1920x400)",
+                    ),
+                ),
+                (
+                    "publicado_estoque",
+                    models.BooleanField(default=False, verbose_name="Publicado"),
+                ),
             ],
             options={
-                'verbose_name': 'Presonalização da página Estoque',
-                'verbose_name_plural': 'Presonalização da página Estoque',
+                "verbose_name": "Presonalização da página Estoque",
+                "verbose_name_plural": "Presonalização da página Estoque",
             },
         ),
         migrations.CreateModel(
-            name='FuncionarioModels',
+            name="FuncionarioModels",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome', models.CharField(default=' ', max_length=20, verbose_name='Nome')),
-                ('cargo', models.CharField(blank=True, default=' ', max_length=20, null=True, verbose_name='Cargo')),
-                ('publicado', models.BooleanField(default=False, verbose_name='Publicado')),
-                ('link_insta', models.CharField(blank=True, default=None, max_length=1000000, null=True, verbose_name='Link do Instagram')),
-                ('link_whats', models.CharField(blank=True, default=None, max_length=1000000, null=True, verbose_name='Link do WhatsApp')),
-                ('link_face', models.CharField(blank=True, default=None, max_length=1000000, null=True, verbose_name='Link do Facebook')),
-                ('foto', models.ImageField(default=' ', upload_to='imagens_sobre_nos/imagens_funcionarios', verbose_name='Foto (400x442)')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "nome",
+                    models.CharField(default=" ", max_length=20, verbose_name="Nome"),
+                ),
+                (
+                    "cargo",
+                    models.CharField(
+                        blank=True,
+                        default=" ",
+                        max_length=20,
+                        null=True,
+                        verbose_name="Cargo",
+                    ),
+                ),
+                (
+                    "publicado",
+                    models.BooleanField(default=False, verbose_name="Publicado"),
+                ),
+                (
+                    "link_insta",
+                    models.CharField(
+                        blank=True,
+                        default=None,
+                        max_length=1000000,
+                        null=True,
+                        verbose_name="Link do Instagram",
+                    ),
+                ),
+                (
+                    "link_whats",
+                    models.CharField(
+                        blank=True,
+                        default=None,
+                        max_length=1000000,
+                        null=True,
+                        verbose_name="Link do WhatsApp",
+                    ),
+                ),
+                (
+                    "link_face",
+                    models.CharField(
+                        blank=True,
+                        default=None,
+                        max_length=1000000,
+                        null=True,
+                        verbose_name="Link do Facebook",
+                    ),
+                ),
+                (
+                    "foto",
+                    models.ImageField(
+                        default=" ",
+                        upload_to="imagens_sobre_nos/imagens_funcionarios",
+                        verbose_name="Foto (400x442)",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='HomeModels',
+            name="HomeModels",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome_home', models.CharField(default='Home', max_length=50, verbose_name='Página')),
-                ('titulo_home', models.CharField(blank=True, default=None, max_length=15, null=True, verbose_name='Título')),
-                ('subtitulo_home', models.CharField(blank=True, default=None, max_length=30, null=True, verbose_name='Subtítulo')),
-                ('descricao_home', models.TextField(blank=True, default=None, max_length=65, null=True, verbose_name='Descrição')),
-                ('publicado_home', models.BooleanField(default=False, verbose_name='Publicado')),
-                ('imagem_home', models.ImageField(blank=True, default=None, null=True, upload_to='imagens_home', verbose_name='Background (1920x803)')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "nome_home",
+                    models.CharField(
+                        default="Home", max_length=50, verbose_name="Página"
+                    ),
+                ),
+                (
+                    "titulo_home",
+                    models.CharField(
+                        blank=True,
+                        default=None,
+                        max_length=15,
+                        null=True,
+                        verbose_name="Título",
+                    ),
+                ),
+                (
+                    "subtitulo_home",
+                    models.CharField(
+                        blank=True,
+                        default=None,
+                        max_length=30,
+                        null=True,
+                        verbose_name="Subtítulo",
+                    ),
+                ),
+                (
+                    "descricao_home",
+                    models.TextField(
+                        blank=True,
+                        default=None,
+                        max_length=65,
+                        null=True,
+                        verbose_name="Descrição",
+                    ),
+                ),
+                (
+                    "publicado_home",
+                    models.BooleanField(default=False, verbose_name="Publicado"),
+                ),
+                (
+                    "imagem_home",
+                    models.ImageField(
+                        blank=True,
+                        default=None,
+                        null=True,
+                        upload_to="imagens_home",
+                        verbose_name="Background (1920x803)",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Presonalização da página Home',
-                'verbose_name_plural': 'Presonalização da página Home',
+                "verbose_name": "Presonalização da página Home",
+                "verbose_name_plural": "Presonalização da página Home",
             },
         ),
         migrations.CreateModel(
-            name='QualidadesHomeModels',
+            name="QualidadesHomeModels",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome_qualidade', models.CharField(default='', max_length=20, verbose_name='Qualidade')),
-                ('descricao_qualidade', models.TextField(blank=True, default=None, max_length=70, null=True, verbose_name='Descrição da qualidade')),
-                ('publicado_qualidade', models.BooleanField(default=False, verbose_name='Publicado')),
-                ('icon_qualidade', models.ImageField(default=None, upload_to='imagens_home/icon_qualidades', verbose_name='Icon (75x75)')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "nome_qualidade",
+                    models.CharField(
+                        default="", max_length=20, verbose_name="Qualidade"
+                    ),
+                ),
+                (
+                    "descricao_qualidade",
+                    models.TextField(
+                        blank=True,
+                        default=None,
+                        max_length=70,
+                        null=True,
+                        verbose_name="Descrição da qualidade",
+                    ),
+                ),
+                (
+                    "publicado_qualidade",
+                    models.BooleanField(default=False, verbose_name="Publicado"),
+                ),
+                (
+                    "icon_qualidade",
+                    models.ImageField(
+                        default=None,
+                        upload_to="imagens_home/icon_qualidades",
+                        verbose_name="Icon (75x75)",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Qualidade',
-                'verbose_name_plural': 'Qualidades',
+                "verbose_name": "Qualidade",
+                "verbose_name_plural": "Qualidades",
             },
         ),
         migrations.CreateModel(
-            name='SobreNosModels',
+            name="SobreNosModels",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome_sobre_nos', models.CharField(default='About', max_length=50, verbose_name='Página')),
-                ('titulo_sobre_nos', models.CharField(blank=True, default=None, max_length=50, null=True, verbose_name='Título')),
-                ('imagem_sobre_nos', models.ImageField(blank=True, null=True, upload_to='imagens_sobre_nos/imagens_background', verbose_name='Background (1920x400)')),
-                ('publicado_sobre_nos', models.BooleanField(default=False, verbose_name='Publicado')),
-                ('titulo_texto_sobre_nos', models.CharField(blank=True, default=None, max_length=50, null=True, verbose_name='Título do texto')),
-                ('subtitulo_texto_sobre_nos', models.CharField(blank=True, default=None, max_length=50, null=True, verbose_name='Subtítulo do texto')),
-                ('texto_sobre_nos', models.TextField(blank=True, default=None, max_length=100000, null=True, verbose_name='Texto')),
-                ('imagem_texto_um_sobre_nos', models.ImageField(blank=True, default=None, null=True, upload_to='imagens_sobre_nos/imagens_texto_um', verbose_name='Imagem do quadrado 1 (400x500)')),
-                ('imagem_texto_dois_sobre_nos', models.ImageField(blank=True, default=None, null=True, upload_to='imagens_sobre_nos/imagens_texto_dois', verbose_name='Imagem do quadrado 2 (400x500)')),
-                ('imagem_texto_tres_sobre_nos', models.ImageField(blank=True, default=None, null=True, upload_to='imagens_sobre_nos/imagens_texto_tres', verbose_name='Imagem do quadrado 3 (400x500)')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "nome_sobre_nos",
+                    models.CharField(
+                        default="About", max_length=50, verbose_name="Página"
+                    ),
+                ),
+                (
+                    "titulo_sobre_nos",
+                    models.CharField(
+                        blank=True,
+                        default=None,
+                        max_length=50,
+                        null=True,
+                        verbose_name="Título",
+                    ),
+                ),
+                (
+                    "imagem_sobre_nos",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="imagens_sobre_nos/imagens_background",
+                        verbose_name="Background (1920x400)",
+                    ),
+                ),
+                (
+                    "publicado_sobre_nos",
+                    models.BooleanField(default=False, verbose_name="Publicado"),
+                ),
+                (
+                    "titulo_texto_sobre_nos",
+                    models.CharField(
+                        blank=True,
+                        default=None,
+                        max_length=50,
+                        null=True,
+                        verbose_name="Título do texto",
+                    ),
+                ),
+                (
+                    "subtitulo_texto_sobre_nos",
+                    models.CharField(
+                        blank=True,
+                        default=None,
+                        max_length=50,
+                        null=True,
+                        verbose_name="Subtítulo do texto",
+                    ),
+                ),
+                (
+                    "texto_sobre_nos",
+                    models.TextField(
+                        blank=True,
+                        default=None,
+                        max_length=100000,
+                        null=True,
+                        verbose_name="Texto",
+                    ),
+                ),
+                (
+                    "imagem_texto_um_sobre_nos",
+                    models.ImageField(
+                        blank=True,
+                        default=None,
+                        null=True,
+                        upload_to="imagens_sobre_nos/imagens_texto_um",
+                        verbose_name="Imagem do quadrado 1 (400x500)",
+                    ),
+                ),
+                (
+                    "imagem_texto_dois_sobre_nos",
+                    models.ImageField(
+                        blank=True,
+                        default=None,
+                        null=True,
+                        upload_to="imagens_sobre_nos/imagens_texto_dois",
+                        verbose_name="Imagem do quadrado 2 (400x500)",
+                    ),
+                ),
+                (
+                    "imagem_texto_tres_sobre_nos",
+                    models.ImageField(
+                        blank=True,
+                        default=None,
+                        null=True,
+                        upload_to="imagens_sobre_nos/imagens_texto_tres",
+                        verbose_name="Imagem do quadrado 3 (400x500)",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Presonalização da página Sobre Nós',
-                'verbose_name_plural': 'Presonalização da página Sobre Nós',
+                "verbose_name": "Presonalização da página Sobre Nós",
+                "verbose_name_plural": "Presonalização da página Sobre Nós",
             },
         ),
     ]

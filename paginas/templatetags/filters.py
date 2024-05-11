@@ -1,6 +1,7 @@
 from django.template import Library
-from utils import utils
+
 from carro.models import CarroModels
+from utils import utils
 
 register = Library()
 
@@ -22,8 +23,9 @@ def formata_quilometragem(valor):
 
 @register.filter
 def contar_carros_categoria(cat):
-    contagem = len(CarroModels.objects.filter(
-        categoria_carro__nome_categoria__iexact=cat, publicado=True
-    )
+    contagem = len(
+        CarroModels.objects.filter(
+            categoria_carro__nome_categoria__iexact=cat, publicado=True
+        )
     )
     return contagem

@@ -1,7 +1,7 @@
 (function ($) {
 	'use strict';
 	/*----------------------------------------*/
-	/*  Preloader  
+	/*  Preloader
 /*----------------------------------------*/
 	var windows = $(window);
     windows.on('load', function(){
@@ -14,12 +14,12 @@
 	});
 
 	/*----------------------------------------*/
-	/*  ion Range Slider 
+	/*  ion Range Slider
 /*----------------------------------------*/
     $(".tromic-range-slider").ionRangeSlider({
         prefix: "$",
     });
-	
+
 	/*----------------------------------------*/
 	/*  Check if element exists
 /*----------------------------------------*/
@@ -81,7 +81,7 @@
 	/*---------------------------------------
 		Swiper All Slider
 ---------------------------------*/
-	
+
 	/* ---Main Slider--- */
 	if ($('.main-slider').elExists()) {
 		var swiper = new Swiper('.main-slider', {
@@ -707,7 +707,7 @@
 				}
 			});
 		}
-	
+
 	/*------------------------------------
 	Toolbar Button
 	------------------------------------- */
@@ -820,7 +820,7 @@
 	if ($('.nice-select').elExists()) {
 		$('.nice-select').niceSelect();
 	}
-	
+
 	/*--------------------------------
 	Ajax Contact Form
 -------------------------------- */
@@ -868,7 +868,7 @@
 				});
 		});
 	});
-	
+
 	/*--------------------------------
     Scroll To Top
 -------------------------------- */
@@ -926,7 +926,7 @@
 
         } else if(resp.result === 'error') {
             $('.mailchimp-error').html('' + resp.msg).fadeIn(900);
-        }  
+        }
     }
 
 })(jQuery);
