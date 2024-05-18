@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load static %} {% load filters %}
 <x></x>
 {% block titulo_da_guia %}
-<title>CarShop - {{carro.modelo}}</title>
+<title>{% if empresa.nome_empresa %} {{empresa.nome_empresa}} {% else %} CarShop {% endif %} - {{carro.modelo}}</title>
 {% endblock %} {% block conteudo %}
 
 <style>

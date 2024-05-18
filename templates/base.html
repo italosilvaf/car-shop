@@ -138,7 +138,7 @@
                           <ul class="drop-menu">
                             <li>
                               <a
-                                href="https://www.instagram.com/italo_silvaf/"
+                                href="https://www.instagram.com/giovanna_om/"
                                 target="_blank"
                               >
                                 <i class="fa fa-instagram"></i> Instagram</a
@@ -231,7 +231,7 @@
                       <ul class="sub-menu">
                         <li>
                           <a
-                            href="https://www.instagram.com/italo_silvaf/"
+                            href="https://www.instagram.com/italo_silvaf"
                             target="_blank"
                           >
                             <span class="mm-text"
@@ -302,7 +302,7 @@
                     </a>
                   </div>
                   <p class="short-desc mb-2">
-                    A CarShop é a maior empresa de divulgações e vendas
+                    A {% if empresa.nome_empresa %} {{empresa.nome_empresa}} {% else %} CarShop {% endif %} é a maior empresa de vendas
                     automotivas online. Trabalhamos com veículos de qualidade e
                     procedência, prezando o seu conforto.
                   </p>
@@ -370,7 +370,7 @@
               </div>
               <div class="col-lg-2 col-md-4 col-sm-4 pt-8 pt-lg-0">
                 <div class="widget-item">
-                  <h3 class="widget-title mb-5">CarShop</h3>
+                  <h3 class="widget-title mb-5">{% if empresa.nome_empresa %} {{empresa.nome_empresa}} {% else %} CarShop {% endif %}</h3>
                   <ul class="widget-list-item">
                     <li>
                       <i class="fa fa-chevron-right"></i>
