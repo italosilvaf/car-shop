@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% load static %} {% block titulo_da_guia %}
-<title>CarShop - Sobre Nós</title>
+<title>{% if empresa.nome_empresa %} {{empresa.nome_empresa}} {% else %} CarShop {% endif %} - Sobre Nós</title>
 {% endblock %} {% block conteudo %}
 
 <style>
@@ -166,7 +166,7 @@
       </span>
 
       <h2 class="about-title titulo-funcionarios mb-5">
-        Equipe CarShop
+        Equipe {% if empresa.nome_empresa %} {{empresa.nome_empresa}} {% else %} CarShop {% endif %}
       </h2>
 
     </div>

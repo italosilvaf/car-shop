@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "carro",
     "paginas",
     "categorias",
+    "empresa",
     "django_summernote",
 ]
 
