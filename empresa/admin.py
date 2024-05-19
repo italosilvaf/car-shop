@@ -12,6 +12,7 @@ class EmpresaAdmin(admin.ModelAdmin):
         "whatsapp_empresa",
         "facebook_empresa",
         "youtube_empresa",
+        "publicado_empresa"
     )
     list_display_links = ("id", "nome_empresa")
 
