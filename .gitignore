@@ -1,2 +1,14 @@
 media/*
 db.sqlite3
+car_shop/__pycache__/*
+carro/__pycache__/*
+categorias/__pycache__/*
+empresa/__pycache__/*
+paginas/__pycache__/*
+utils/__pycache__/*
+paginas/templatetags/__pycache__/*
+car_shop/migrations/*
+carro/migrations/*
+categorias/migrations/*
+empresa/migrations/*
+paginas/migrations/*

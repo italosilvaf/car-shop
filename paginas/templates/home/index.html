@@ -513,3 +513,57 @@
 
   {% endblock %}
 </div>
+
+
+
+{% block instagram_main_menu %}
+{% if empresa.instagram_empresa %}
+<li>
+  <a
+    href="{{ empresa.instagram_empresa }}"
+    target="_blank"
+  >
+    <i class="fa fa-instagram"></i> Instagram</a
+  >
+</li>
+{% endif %}
+{% endblock %}
+
+{% block whatsapp_main_menu %}
+{% if empresa.whatsapp_empresa %}
+<li>
+  <a
+    href="https://wa.me/55{{ empresa.whatsapp_empresa }}?text=Tenho+interesse+nos+seus+serviços"
+    target="_blank"
+  >
+    <i class="fa fa-whatsapp"></i> Whatsapp</a
+  >
+</li>
+{% endif %}
+{% endblock %}
+
+{% block facebook_main_menu %}
+{% if empresa.facebook_empresa %}
+<li>
+  <a
+    href="{{ empresa.facebook_empresa }}"
+    target="_blank"
+  >
+    <i class="fa fa-facebook"></i> Facebook</a
+  >
+</li>
+{% endif %}
+{% endblock %}
+
+{% block youtube_main_menu %}
+{% if empresa.youtube_empresa %}
+<li>
+  <a
+    href="{{ empresa.youtube_empresa }}"
+    target="_blank"
+  >
+    <i class="fa fa-youtube"></i> YouTube</a
+  >
+</li>
+{% endif %}
+{% endblock %}
