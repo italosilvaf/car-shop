@@ -97,8 +97,15 @@
         color: #8690a1;
       }
 
-      .header-logo-car-shop {
-        width: 280px;
+      .div-logo-car-shop {
+        width: 300px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
+      .logo-car-shop{
+        width: 300px;
+        height: 80px;
       }
     </style>
   </head>
@@ -112,10 +119,11 @@
             <div class="row align-items-center">
               <div class="col-lg-12">
                 <div class="header-middle-wrap position-relative">
-                  <a href="{% url 'home' %}" class="header-logo-car-shop">
+                  <a href="{% url 'home' %}" class="div-logo-car-shop">
                     <img
-                      src="{% static 'tromic/assets/images/logo/logo-pronta-preta.png' %}"
+                      src="{% block logo_fundo_claro %} {% endblock %}"
                       alt="Header Logo"
+                      class="logo-car-shop"
                     />
                   </a>
                   <div class="main-menu d-none d-lg-block">
@@ -155,10 +163,13 @@
           <div class="tromic-offcanvas-body">
             <div class="inner-body">
               <div class="offcanvas-user-info text-center px-6 pb-5">
-                <img
-                  src="{% static 'tromic/assets/images/logo/logo-pronta-branco.png' %}"
-                  alt="Header Logo"
-                />
+                <a href="{% url 'home' %}" class="div-logo-car-shop">
+                  <img
+                    src="{% block logo_fundo_escuro_menu %} {% endblock %}"
+                    alt="Header Logo"
+                    class="logo-car-shop"
+                  />
+                </a>
               </div>
               <div class="tromic-offcanvas-top">
                 <a href="#" class="button-close"><i class="pe-7s-close"></i></a>
@@ -205,10 +216,11 @@
               <div class="col-lg-3 row-item-footer">
                 <div class="widget-item">
                   <div class="footer-logo pb-4">
-                    <a href="{% url 'home' %}">
+                    <a href="{% url 'home' %}" class="div-logo-car-shop">
                       <img
-                        src="{% static 'tromic/assets/images/logo/logo-pronta-branco.png' %}"
+                        src="{% block logo_fundo_escuro_footer %} {% endblock %}"
                         alt="Logo"
+                        class="logo-car-shop"
                       />
                     </a>
                   </div>

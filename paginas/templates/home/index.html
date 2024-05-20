@@ -3,7 +3,15 @@
 {% block titulo_da_guia %}
 <title>
   {% if empresa.nome_empresa %} {{empresa.nome_empresa}} {% else %} CarShop {% endif %} - Home</title>
-{% endblock %} {% block conteudo %}
+{% endblock %} 
+
+{% block logo_fundo_claro %} {{ empresa.logo_fundo_claro_empresa.url }} {% endblock %}
+
+{% block logo_fundo_escuro_menu %} {{ empresa.logo_fundo_escuro_empresa.url }} {% endblock %}
+
+{% block logo_fundo_escuro_footer %} {{ empresa.logo_fundo_escuro_empresa.url }} {% endblock %}
+
+{% block conteudo %}
 
 <style>
   .titulo-home {
