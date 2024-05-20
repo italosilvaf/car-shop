@@ -206,3 +206,194 @@
 <!-- Main Content Area End Here  -->
 
 {% endblock %}
+
+<!-- Begin Main Menu -->
+{% block contacts_main_menu %}
+{% if empresa.instagram_empresa or empresa.whatsapp_empresa or empresa.facebook_empresa or empresa.youtube_empresa %}
+<li class="drop-holder">
+  <a href="#"
+    >Fale Conosco
+    <i class="pe-7s-angle-down"></i>
+  </a>
+  <ul class="drop-menu">
+    {% if empresa.instagram_empresa %}
+    <li>
+      <a
+        href="{{ empresa.instagram_empresa }}"
+        target="_blank"
+      >
+        <i class="fa fa-instagram"></i> Instagram</a
+      >
+    </li>
+    {% endif %}
+    {% if empresa.whatsapp_empresa %}
+    <li>
+      <a
+        href="https://wa.me/55{{ empresa.whatsapp_empresa }}?text=Tenho+interesse+nos+seus+serviços"
+        target="_blank"
+      >
+        <i class="fa fa-whatsapp"></i> Whatsapp</a
+      >
+    </li>
+    {% endif %}
+    {% if empresa.facebook_empresa %}
+    <li>
+      <a
+        href="{{ empresa.facebook_empresa }}"
+        target="_blank"
+      >
+        <i class="fa fa-facebook"></i> Facebook</a
+      >
+    </li>
+    {% endif %}
+    {% if empresa.youtube_empresa %}
+    <li>
+      <a
+        href="{{ empresa.youtube_empresa }}"
+        target="_blank"
+      >
+        <i class="fa fa-youtube"></i> YouTube</a
+      >
+    </li>
+    {% endif %}
+  </ul>
+</li>
+{% endif %}
+{% endblock %}
+<!-- Main Menu End Here -->
+
+
+<!-- Begin Mobile Menu -->
+{% block contacts_mobile_menu %}
+{% if empresa.instagram_empresa or empresa.whatsapp_empresa or empresa.facebook_empresa or empresa.youtube_empresa %}
+<li class="menu-item-has-children">
+  <a href="#">
+    <span class="mm-text"
+      >Fale Conosco
+      <i class="pe-7s-angle-down"></i>
+    </span>
+  </a>
+  <ul class="sub-menu">
+    {% if empresa.instagram_empresa %}
+    <li>
+      <a
+        href="{{ empresa.instagram_empresa }}"
+        target="_blank"
+      >
+        <span class="mm-text"
+          >Instagram<i class="fa fa-instagram"></i>
+        </span>
+      </a>
+    </li>
+    {% endif %}
+    {% if empresa.whatsapp_empresa %}
+    <li>
+      <a
+        href="https://wa.me/55{{ empresa.whatsapp_empresa }}?text=Tenho+interesse+nos+seus+serviços"
+        target="_blank"
+      >
+        <span class="mm-text"
+          >Whatsapp<i class="fa fa-whatsapp"></i
+        ></span>
+      </a>
+    </li>
+    {% endif %}
+    {% if empresa.facebook_empresa %}
+    <li>
+      <a
+        href="{{ empresa.facebook_empresa }}"
+        target="_blank"
+      >
+        <span class="mm-text"
+          >Facebook<i class="fa fa-facebook"></i
+        ></span>
+      </a>
+    </li>
+    {% endif %}
+    {% if empresa.youtube_empresa %}
+    <li>
+      <a
+        href="{{ empresa.youtube_empresa }}"
+        target="_blank"
+      >
+        <span class="mm-text"
+          >YouTube<i class="fa fa-youtube"></i
+        ></span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</li>
+{% endif %}
+{% endblock %}
+<!-- Mobile Menu End Here -->
+
+
+<!-- Begin Footer Menu -->
+{% block contacts_footer %}
+{% if empresa.instagram_empresa %}
+<li>
+  <a
+    href="{{ empresa.instagram_empresa }}"
+    data-tippy="Instagram"
+    data-tippy-inertia="true"
+    data-tippy-animation="shift-away"
+    data-tippy-delay="50"
+    data-tippy-arrow="true"
+    data-tippy-theme="sharpborder"
+    target="_blank"
+  >
+    <i class="fa fa-instagram"></i>
+  </a>
+</li>
+{% endif %}
+{% if empresa.whatsapp_empresa %}
+<li>
+  <a
+    href="https://wa.me/{{ empresa.whatsapp_empresa }}?text=Tenho+interesse+nos+seus+serviços"
+    data-tippy="Whatsapp"
+    data-tippy-inertia="true"
+    data-tippy-animation="shift-away"
+    data-tippy-delay="50"
+    data-tippy-arrow="true"
+    data-tippy-theme="sharpborder"
+    target="_blank"
+  >
+    <i class="fa fa-whatsapp"></i>
+  </a>
+</li>
+{% endif %}
+{% if empresa.facebook_empresa %}
+<li>
+  <a
+    href="{{ empresa.facebook_empresa }}"
+    data-tippy="Facebook"
+    data-tippy-inertia="true"
+    data-tippy-animation="shift-away"
+    data-tippy-delay="50"
+    data-tippy-arrow="true"
+    data-tippy-theme="sharpborder"
+    target="_blank"
+  >
+    <i class="fa fa-facebook"></i>
+  </a>
+</li>
+{% endif %}
+{% if empresa.youtube_empresa %}
+<li>
+  <a
+    href="{{ empresa.youtube_empresa }}"
+    data-tippy="YouTube"
+    data-tippy-inertia="true"
+    data-tippy-animation="shift-away"
+    data-tippy-delay="50"
+    data-tippy-arrow="true"
+    data-tippy-theme="sharpborder"
+    target="_blank"
+  >
+    <i class="fa fa-youtube"></i>
+  </a>
+</li>
+{% endif %}
+{%endblock%}
+<!-- Footer Menu End Here -->

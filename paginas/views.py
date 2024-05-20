@@ -32,7 +32,9 @@ class HomeIndex(View):
         estados_de_conservacao = EstadoDeConservacaoModels.objects.all()
         categorias = CategoriaModels.objects.all()
         qualidades = QualidadesHomeModels.objects.filter(publicado_qualidade=True)
-        empresa = EmpresaModels.objects.filter(publicado_empresa=True).order_by("-id").first()
+        empresa = (
+            EmpresaModels.objects.filter(publicado_empresa=True).order_by("-id").first()
+        )
 
         context = {
             "personalizacoes": personalizacoes,
@@ -56,7 +58,9 @@ class SobreNosIndex(View):
         funcionarios = FuncionarioModels.objects.filter(publicado=True).order_by("-id")
         estados_de_conservacao = EstadoDeConservacaoModels.objects.all()
         categorias = CategoriaModels.objects.all()
-        empresa = EmpresaModels.objects.filter(publicado_empresa=True).order_by("-id").first()
+        empresa = (
+            EmpresaModels.objects.filter(publicado_empresa=True).order_by("-id").first()
+        )
 
         context = {
             "personalizacoes": personalizacoes,
@@ -85,7 +89,9 @@ class EstoqueIndex(ListView):
         context["marcas"] = MarcaModels.objects.all()
         context["cores"] = CorModels.objects.all()
         context["cambios"] = CambioModels.objects.all()
-        context["empresa"] = EmpresaModels.objects.filter(publicado_empresa=True).order_by("-id").first()
+        context["empresa"] = (
+            EmpresaModels.objects.filter(publicado_empresa=True).order_by("-id").first()
+        )
 
         return context
 
@@ -99,7 +105,9 @@ class CarroDetalhes(DetailView):
         context = super().get_context_data(**kwargs)
         context["estados_de_conservacao"] = EstadoDeConservacaoModels.objects.all()
         context["categorias"] = CategoriaModels.objects.all()
-        context["empresa"] = EmpresaModels.objects.filter(publicado_empresa=True).order_by("-id").first()
+        context["empresa"] = (
+            EmpresaModels.objects.filter(publicado_empresa=True).order_by("-id").first()
+        )
 
         return context
 
