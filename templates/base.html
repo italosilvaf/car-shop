@@ -130,19 +130,7 @@
                         <li>
                           <a href="{% url 'estoque' %}">Estoque</a>
                         </li>
-                        <li class="drop-holder">
-                          <a href="#"
-                            >Fale Conosco
-                            <i class="pe-7s-angle-down"></i>
-                          </a>
-                          <ul class="drop-menu">
-                            {% block instagram_main_menu %} {%endblock%}
-                            {% block whatsapp_main_menu %} {%endblock%}
-                            {% block facebook_main_menu %} {%endblock%}
-                            {% block youtube_main_menu %} {%endblock%}
-                            
-                          </ul>
-                        </li>
+                        {% block contacts_main_menu %} {% endblock %}
                       </ul>
                     </nav>
                   </div>
@@ -193,56 +181,7 @@
                         <span class="mm-text">Estoque</span>
                       </a>
                     </li>
-                    <li class="menu-item-has-children">
-                      <a href="#">
-                        <span class="mm-text"
-                          >Fale Conosco
-                          <i class="pe-7s-angle-down"></i>
-                        </span>
-                      </a>
-                      <ul class="sub-menu">
-                        <li>
-                          <a
-                            href="https://www.instagram.com/italo_silvaf"
-                            target="_blank"
-                          >
-                            <span class="mm-text"
-                              >Instagram<i class="fa fa-instagram"></i>
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://wa.me/5534996540161?text=Tenho+interesse+nos+seus+serviços"
-                            target="_blank"
-                          >
-                            <span class="mm-text"
-                              >Whatsapp<i class="fa fa-whatsapp"></i
-                            ></span>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://www.facebook.com/groups/765956004504846/?ref=share"
-                            target="_blank"
-                          >
-                            <span class="mm-text"
-                              >Facebook<i class="fa fa-facebook"></i
-                            ></span>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://www.youtube.com/channel/UCv8MIwHfrkTVY9bn-Vq7gMA"
-                            target="_blank"
-                          >
-                            <span class="mm-text"
-                              >YouTube<i class="fa fa-youtube"></i
-                            ></span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
+                    {% block contacts_mobile_menu %} {% endblock %}
                   </ul>
                 </nav>
               </div>
@@ -280,63 +219,7 @@
                   </p>
                   <div class="social-link pt-2">
                     <ul>
-                      <li>
-                        <a
-                          href="https://www.instagram.com/italo_silvaf/"
-                          data-tippy="Instagram"
-                          data-tippy-inertia="true"
-                          data-tippy-animation="shift-away"
-                          data-tippy-delay="50"
-                          data-tippy-arrow="true"
-                          data-tippy-theme="sharpborder"
-                          target="_blank"
-                        >
-                          <i class="fa fa-instagram"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://wa.me/5534996540161?text=Tenho+interesse+nos+seus+serviços"
-                          data-tippy="Whatsapp"
-                          data-tippy-inertia="true"
-                          data-tippy-animation="shift-away"
-                          data-tippy-delay="50"
-                          data-tippy-arrow="true"
-                          data-tippy-theme="sharpborder"
-                          target="_blank"
-                        >
-                          <i class="fa fa-whatsapp"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://www.facebook.com/groups/765956004504846/?ref=share"
-                          data-tippy="Facebook"
-                          data-tippy-inertia="true"
-                          data-tippy-animation="shift-away"
-                          data-tippy-delay="50"
-                          data-tippy-arrow="true"
-                          data-tippy-theme="sharpborder"
-                          target="_blank"
-                        >
-                          <i class="fa fa-facebook"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://www.youtube.com/channel/UCv8MIwHfrkTVY9bn-Vq7gMA"
-                          data-tippy="YouTube"
-                          data-tippy-inertia="true"
-                          data-tippy-animation="shift-away"
-                          data-tippy-delay="50"
-                          data-tippy-arrow="true"
-                          data-tippy-theme="sharpborder"
-                          target="_blank"
-                        >
-                          <i class="fa fa-youtube"></i>
-                        </a>
-                      </li>
-                    </ul>
+                      {% block contacts_footer %} {%endblock%}
                   </div>
                 </div>
               </div>
