@@ -2,9 +2,9 @@
 <x></x>
 {% block titulo_da_guia %}
 <title>{% if empresa.nome_empresa %} {{empresa.nome_empresa}} {% else %} CarShop {% endif %} - {{carro.modelo}}</title>
-{% endblock %} 
+{% endblock %}
 
-{% block logo_fundo_claro %} 
+{% block logo_fundo_claro %}
   {% if empresa.logo_fundo_claro_empresa %}
     {{ empresa.logo_fundo_claro_empresa.url }}
   {% else %}
@@ -12,9 +12,9 @@
   {% endif %}
 {% endblock %}
 
-{% block logo_fundo_escuro_menu %} 
+{% block logo_fundo_escuro_menu %}
   {% if empresa.logo_fundo_escuro_empresa %}
-    {{ empresa.logo_fundo_escuro_empresa.url }} 
+    {{ empresa.logo_fundo_escuro_empresa.url }}
   {% else %}
     {% static 'tromic/assets/images/logo/logo-branca-para-fundo-escuro.png' %}
   {% endif %}
@@ -22,7 +22,7 @@
 
 {% block logo_fundo_escuro_footer %}
   {% if empresa.logo_fundo_escuro_empresa %}
-    {{ empresa.logo_fundo_escuro_empresa.url }} 
+    {{ empresa.logo_fundo_escuro_empresa.url }}
   {% else %}
     {% static 'tromic/assets/images/logo/logo-branca-para-fundo-escuro.png' %}
   {% endif %}
@@ -453,4 +453,3 @@
 {%endfor%}
 {%endblock%}
 <!-- Contacts Footer End Here -->
-

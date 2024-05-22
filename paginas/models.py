@@ -1,5 +1,4 @@
 from django.db import models
-from utils import utils
 
 
 class HomeModels(models.Model):
@@ -145,7 +144,7 @@ class FuncionarioModels(models.Model):
         verbose_name="WhatsApp (Apenas numeros com DDD)",
         default=None,
         null=True,
-        blank=True
+        blank=True,
     )
     link_insta = models.CharField(
         max_length=1000000,
