@@ -24,6 +24,9 @@ class EmpresaModels(models.Model):
     youtube_empresa = models.CharField(
         max_length=255, verbose_name="YouTube (Link)", default=None, null=True, blank=True
     )
+    email_empresa = models.CharField(
+        max_length=255, verbose_name="Email", default=None, null=True, blank=True
+    )
     publicado_empresa = models.BooleanField(verbose_name="Publicado", default=False)
 
     def __str__(self):

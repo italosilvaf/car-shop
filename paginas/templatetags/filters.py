@@ -22,6 +22,11 @@ def formata_quilometragem(valor):
 
 
 @register.filter
+def formata_celular(valor):
+    return utils.formata_celular(valor)
+
+
+@register.filter
 def contar_carros_categoria(cat):
     contagem = len(
         CarroModels.objects.filter(

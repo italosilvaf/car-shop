@@ -1,4 +1,5 @@
 from django.db import models
+from utils import utils
 
 
 class HomeModels(models.Model):
@@ -139,16 +140,16 @@ class FuncionarioModels(models.Model):
         max_length=20, verbose_name="Cargo", blank=True, null=True, default=" "
     )
     publicado = models.BooleanField(verbose_name="Publicado", default=False)
+    whatsapp = models.CharField(
+        max_length=11,
+        verbose_name="WhatsApp (Apenas numeros com DDD)",
+        default=None,
+        null=True,
+        blank=True
+    )
     link_insta = models.CharField(
         max_length=1000000,
         verbose_name="Link do Instagram",
-        blank=True,
-        null=True,
-        default=None,
-    )
-    link_whats = models.CharField(
-        max_length=1000000,
-        verbose_name="Link do WhatsApp",
         blank=True,
         null=True,
         default=None,

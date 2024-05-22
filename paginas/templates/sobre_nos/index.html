@@ -1,8 +1,32 @@
-{% extends 'base.html' %} {% load static %} {% block titulo_da_guia %}
+{% extends 'base.html' %} {% load static %} {% load filters %}
+
+{% block titulo_da_guia %}
 <title>{% if empresa.nome_empresa %} {{empresa.nome_empresa}} {% else %} CarShop {% endif %} - Sobre Nós</title>
 {% endblock %} 
 
-{% block logo_fundo_claro %} {{ empresa.logo_fundo_claro_empresa.url }} {% endblock %}
+{% block logo_fundo_claro %} 
+  {% if empresa.logo_fundo_claro_empresa %}
+    {{ empresa.logo_fundo_claro_empresa.url }}
+  {% else %}
+    {% static 'tromic/assets/images/logo/logo-preta-para-fundo-claro.png' %}
+  {% endif %}
+{% endblock %}
+
+{% block logo_fundo_escuro_menu %} 
+  {% if empresa.logo_fundo_escuro_empresa %}
+    {{ empresa.logo_fundo_escuro_empresa.url }} 
+  {% else %}
+    {% static 'tromic/assets/images/logo/logo-branca-para-fundo-escuro.png' %}
+  {% endif %}
+{% endblock %}
+
+{% block logo_fundo_escuro_footer %}
+  {% if empresa.logo_fundo_escuro_empresa %}
+    {{ empresa.logo_fundo_escuro_empresa.url }} 
+  {% else %}
+    {% static 'tromic/assets/images/logo/logo-branca-para-fundo-escuro.png' %}
+  {% endif %}
+{% endblock %}
 
 {% block conteudo %}
 
@@ -193,7 +217,7 @@
             <span class="occupation">{{ funci.cargo }}</span>
             {% endif %}
             <!---->
-            {%if funci.link_insta or funci.link_whats or funci.link_face%}
+            {%if funci.link_insta or funci.whatsapp or funci.link_face%}
             <div class="social-link with-border pt-2">
               <ul>
                 {% if funci.link_insta %}
@@ -202,9 +226,9 @@
                     <i class="fa fa-instagram"></i>
                   </a>
                 </li>
-                {% endif %} {% if funci.link_whats %}
+                {% endif %} {% if funci.whatsapp %}
                 <li>
-                  <a href="{{ funci.link_whats }}" target="_blank">
+                  <a href="https://wa.me/55{{ funci.whatsapp }}?text=Tenho+interesse+nos+seus+serviços" target="_blank">
                     <i class="fa fa-whatsapp"></i>
                   </a>
                 </li>
@@ -354,7 +378,7 @@
 
 
 <!-- Begin Footer Menu -->
-{% block contacts_footer %}
+{% block social_media_contacts_footer %}
 {% if empresa.instagram_empresa %}
 <li>
   <a
@@ -421,3 +445,34 @@
 {% endif %}
 {%endblock%}
 <!-- Footer Menu End Here -->
+
+<!-- Begin Contacts Footer -->
+{% block contacts_footer %}
+{% if empresa.email_empresa %}
+  <li>
+    <a
+      href="mailto:{{ empresa.email_empresa }}?subject=Tenho%20interesse%20nos%20seus%20servi%C3%A7os"
+      target="_blank"
+      >{{ empresa.email_empresa }}</a
+    >
+  </li>
+{% endif %}
+{% if empresa.whatsapp_empresa %}
+  <li>
+    <a href="https://wa.me/55{{ empresa.whatsapp_empresa }}?text=Tenho+interesse+nos+seus+serviços" target="_blank"
+      >{{ empresa.whatsapp_empresa|formata_celular }}</a
+    >
+  </li>
+{% endif %}
+{% for whatsapp in whatsapp_funcionarios %}
+  {% if whatsapp.whatsapp %}
+    <li>
+      <a href="https://wa.me/55{{ whatsapp.whatsapp }}?text=Tenho+interesse+nos+seus+serviços" target="_blank"
+        >{{ whatsapp.whatsapp|formata_celular }}</a
+      >
+    </li>
+  {% endif %}
+{%endfor%}
+{%endblock%}
+<!-- Contacts Footer End Here -->
+

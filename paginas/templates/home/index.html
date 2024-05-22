@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %}
+{% extends 'base.html' %} {% load static %} {% load filters %}
 <x></x>
 {% block titulo_da_guia %}
 <title>
@@ -664,7 +664,7 @@
 
 
 <!-- Begin Footer Menu -->
-{% block contacts_footer %}
+{% block social_media_contacts_footer %}
 {% if empresa.instagram_empresa %}
 <li>
   <a
@@ -731,3 +731,33 @@
 {% endif %}
 {%endblock%}
 <!-- Footer Menu End Here -->
+
+<!-- Begin Contacts Footer -->
+{% block contacts_footer %}
+  {% if empresa.email_empresa %}
+    <li>
+      <a
+        href="mailto:{{ empresa.email_empresa }}?subject=Tenho%20interesse%20nos%20seus%20servi%C3%A7os"
+        target="_blank"
+        >{{ empresa.email_empresa }}</a
+      >
+    </li>
+  {% endif %}
+  {% if empresa.whatsapp_empresa %}
+    <li>
+      <a href="https://wa.me/55{{ empresa.whatsapp_empresa }}?text=Tenho+interesse+nos+seus+serviços" target="_blank"
+        >{{ empresa.whatsapp_empresa|formata_celular }}</a
+      >
+    </li>
+  {% endif %}
+  {% for whatsapp in whatsapp_funcionarios %}
+    {% if whatsapp.whatsapp %}
+      <li>
+        <a href="https://wa.me/55{{ whatsapp.whatsapp }}?text=Tenho+interesse+nos+seus+serviços" target="_blank"
+          >{{ whatsapp.whatsapp|formata_celular }}</a
+        >
+      </li>
+    {% endif %}
+  {%endfor%}
+{%endblock%}
+<!-- Contacts Footer End Here -->

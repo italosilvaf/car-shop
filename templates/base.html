@@ -231,7 +231,7 @@
                   </p>
                   <div class="social-link pt-2">
                     <ul>
-                      {% block contacts_footer %} {%endblock%}
+                      {% block social_media_contacts_footer %} {%endblock%}
                   </div>
                 </div>
               </div>
@@ -291,31 +291,7 @@
                 <div class="widget-contact-info pb-2">
                   <ul>
                     <li>Atendimento 100% online / 24 horas</li>
-                    <li>
-                      Anuncie na
-                      <a
-                        href="https://www.instagram.com/italo_silvaf/"
-                        target="_blank"
-                        >@italo_silvaf</a
-                      >
-                    </li>
-
-                    <li>
-                      <a
-                        href="mailto://italo_silvafernandesprog@gmail.com"
-                        target="_blank"
-                        >italosilvafernandesprog@gmail.com</a
-                      >
-                    </li>
-                    <li>
-                      <a href="tel://034996540161" target="_blank"
-                        >(34) 9 9654-0161</a
-                      >
-                      <br />
-                      <a href="tel://034999422713" target="_blank"
-                        >(34) 9 9942-2713</a
-                      >
-                    </li>
+                    {% block contacts_footer %} {% endblock %}
                   </ul>
                 </div>
               </div>
