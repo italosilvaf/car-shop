@@ -35,6 +35,11 @@ class HomeIndex(View):
         empresa = (
             EmpresaModels.objects.filter(publicado_empresa=True).order_by("-id").first()
         )
+        whatsapp_funcionarios = (
+            FuncionarioModels.objects.filter(publicado=True)
+            .exclude(whatsapp__isnull=True)
+            .order_by("-id")[:5]
+        )
 
         context = {
             "personalizacoes": personalizacoes,
@@ -43,6 +48,7 @@ class HomeIndex(View):
             "categorias": categorias,
             "qualidades": qualidades,
             "empresa": empresa,
+            "whatsapp_funcionarios": whatsapp_funcionarios,
         }
 
         return render(self.request, "home/index.html", context)
@@ -61,6 +67,11 @@ class SobreNosIndex(View):
         empresa = (
             EmpresaModels.objects.filter(publicado_empresa=True).order_by("-id").first()
         )
+        whatsapp_funcionarios = (
+            FuncionarioModels.objects.filter(publicado=True)
+            .exclude(whatsapp__isnull=True)
+            .order_by("-id")[:5]
+        )
 
         context = {
             "personalizacoes": personalizacoes,
@@ -68,6 +79,7 @@ class SobreNosIndex(View):
             "estados_de_conservacao": estados_de_conservacao,
             "categorias": categorias,
             "empresa": empresa,
+            "whatsapp_funcionarios": whatsapp_funcionarios,
         }
 
         return render(self.request, "sobre_nos/index.html", context)
@@ -92,6 +104,11 @@ class EstoqueIndex(ListView):
         context["empresa"] = (
             EmpresaModels.objects.filter(publicado_empresa=True).order_by("-id").first()
         )
+        context["whatsapp_funcionarios"] = (
+            FuncionarioModels.objects.filter(publicado=True)
+            .exclude(whatsapp__isnull=True)
+            .order_by("-id")[:5]
+        )
 
         return context
 
@@ -107,6 +124,11 @@ class CarroDetalhes(DetailView):
         context["categorias"] = CategoriaModels.objects.all()
         context["empresa"] = (
             EmpresaModels.objects.filter(publicado_empresa=True).order_by("-id").first()
+        )
+        context["whatsapp_funcionarios"] = (
+            FuncionarioModels.objects.filter(publicado=True)
+            .exclude(whatsapp__isnull=True)
+            .order_by("-id")[:5]
         )
 
         return context

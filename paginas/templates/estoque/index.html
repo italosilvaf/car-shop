@@ -2,7 +2,33 @@
 <x></x>
 {% block titulo_da_guia %}
 <title>{% if empresa.nome_empresa %} {{empresa.nome_empresa}} {% else %} CarShop {% endif %} - Estoque</title>
-{% endblock %} {% block conteudo %}
+{% endblock %}
+
+{% block logo_fundo_claro %}
+  {% if empresa.logo_fundo_claro_empresa %}
+    {{ empresa.logo_fundo_claro_empresa.url }}
+  {% else %}
+    {% static 'tromic/assets/images/logo/logo-preta-para-fundo-claro.png' %}
+  {% endif %}
+{% endblock %}
+
+{% block logo_fundo_escuro_menu %}
+  {% if empresa.logo_fundo_escuro_empresa %}
+    {{ empresa.logo_fundo_escuro_empresa.url }}
+  {% else %}
+    {% static 'tromic/assets/images/logo/logo-branca-para-fundo-escuro.png' %}
+  {% endif %}
+{% endblock %}
+
+{% block logo_fundo_escuro_footer %}
+  {% if empresa.logo_fundo_escuro_empresa %}
+    {{ empresa.logo_fundo_escuro_empresa.url }}
+  {% else %}
+    {% static 'tromic/assets/images/logo/logo-branca-para-fundo-escuro.png' %}
+  {% endif %}
+{% endblock %}
+
+{% block conteudo %}
 
 <style>
   /* Geral */
@@ -652,7 +678,7 @@
 
 
 <!-- Begin Footer Menu -->
-{% block contacts_footer %}
+{% block social_media_contacts_footer %}
 {% if empresa.instagram_empresa %}
 <li>
   <a
@@ -719,3 +745,33 @@
 {% endif %}
 {%endblock%}
 <!-- Footer Menu End Here -->
+
+<!-- Begin Contacts Footer -->
+{% block contacts_footer %}
+{% if empresa.email_empresa %}
+  <li>
+    <a
+      href="mailto:{{ empresa.email_empresa }}?subject=Tenho%20interesse%20nos%20seus%20servi%C3%A7os"
+      target="_blank"
+      >{{ empresa.email_empresa }}</a
+    >
+  </li>
+{% endif %}
+{% if empresa.whatsapp_empresa %}
+  <li>
+    <a href="https://wa.me/55{{ empresa.whatsapp_empresa }}?text=Tenho+interesse+nos+seus+serviços" target="_blank"
+      >{{ empresa.whatsapp_empresa|formata_celular }}</a
+    >
+  </li>
+{% endif %}
+{% for whatsapp in whatsapp_funcionarios %}
+  {% if whatsapp.whatsapp %}
+    <li>
+      <a href="https://wa.me/55{{ whatsapp.whatsapp }}?text=Tenho+interesse+nos+seus+serviços" target="_blank"
+        >{{ whatsapp.whatsapp|formata_celular }}</a
+      >
+    </li>
+  {% endif %}
+{%endfor%}
+{%endblock%}
+<!-- Contacts Footer End Here -->
