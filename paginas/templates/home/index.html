@@ -5,11 +5,29 @@
   {% if empresa.nome_empresa %} {{empresa.nome_empresa}} {% else %} CarShop {% endif %} - Home</title>
 {% endblock %} 
 
-{% block logo_fundo_claro %} {{ empresa.logo_fundo_claro_empresa.url }} {% endblock %}
+{% block logo_fundo_claro %} 
+  {% if empresa.logo_fundo_claro_empresa %}
+    {{ empresa.logo_fundo_claro_empresa.url }}
+  {% else %}
+    {% static 'tromic/assets/images/logo/logo-preta-para-fundo-claro.png' %}
+  {% endif %}
+{% endblock %}
 
-{% block logo_fundo_escuro_menu %} {{ empresa.logo_fundo_escuro_empresa.url }} {% endblock %}
+{% block logo_fundo_escuro_menu %} 
+  {% if empresa.logo_fundo_escuro_empresa %}
+    {{ empresa.logo_fundo_escuro_empresa.url }} 
+  {% else %}
+    {% static 'tromic/assets/images/logo/logo-branca-para-fundo-escuro.png' %}
+  {% endif %}
+{% endblock %}
 
-{% block logo_fundo_escuro_footer %} {{ empresa.logo_fundo_escuro_empresa.url }} {% endblock %}
+{% block logo_fundo_escuro_footer %}
+  {% if empresa.logo_fundo_escuro_empresa %}
+    {{ empresa.logo_fundo_escuro_empresa.url }} 
+  {% else %}
+    {% static 'tromic/assets/images/logo/logo-branca-para-fundo-escuro.png' %}
+  {% endif %}
+{% endblock %}
 
 {% block conteudo %}
 
