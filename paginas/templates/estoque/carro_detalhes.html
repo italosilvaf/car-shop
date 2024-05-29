@@ -453,3 +453,22 @@
 {%endfor%}
 {%endblock%}
 <!-- Contacts Footer End Here -->
+
+
+<!-- Begin Favicon -->
+{% block favicon %}
+  {% if empresa.logo_fundo_claro_empresa %}
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% criar_favicon_atraves_da_logo empresa.logo_fundo_claro_empresa.url %}"
+    />
+  {% else %}
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'tromic/assets/images/favicon.png' %}"
+    />
+  {% endif %}
+{% endblock %}
+<!-- Favicon End Here -->
