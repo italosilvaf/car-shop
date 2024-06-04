@@ -8,6 +8,9 @@ migrate:
 makemigrations:
 	python manage.py makemigrations
 
+createsuperuser:
+	python manage.py createsuperuser
+
 install:
 	poetry env use /usr/bin/python3
 	poetry lock
