@@ -2,6 +2,13 @@
 run:
 	python manage.py runserver
 
+all-migrate:
+	python manage.py makemigrations carro
+	python manage.py makemigrations categorias
+	python manage.py makemigrations empresa
+	python manage.py makemigrations paginas
+	python manage.py migrate
+
 migrate:
 	python manage.py migrate
 
