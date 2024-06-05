@@ -12,3 +12,4 @@ carro/migrations/*
 categorias/migrations/*
 empresa/migrations/*
 paginas/migrations/*
+.venv

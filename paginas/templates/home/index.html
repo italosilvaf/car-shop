@@ -76,8 +76,8 @@
   }
 
   .imagem-estado_de_conservacao {
-    max-width: 400px;
-    max-height: 250px;
+    width: 400px;
+    height: 250px;
   }
 
   .quadrado-item {
@@ -400,7 +400,7 @@
                     {{ estado_de_conservacao.nome_estado_de_conservacao }}
                   </h2>
                   <div class="button-wrap">
-                    <a class="btn btn-custom-size btn-primary" href="#"
+                    <a class="btn btn-custom-size btn-primary" href="{% url 'estoque' %}"
                       >VER MODELOS</a
                     >
                   </div>
